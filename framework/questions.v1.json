@@ -961,6 +961,7 @@
       "why": "A filing or registration turns an intention into a dated asset.",
       "evidence_types": [
         "filing_receipt",
+        "confidentiality_agreements",
         "issued_grants_or_registrations"
       ],
       "options": [
@@ -971,7 +972,7 @@
         },
         {
           "id": "first_in_place",
-          "label": "A first filing or registration has been made",
+          "label": "A first filing or registration has been made, or confidentiality agreements are signed",
           "stage": 6
         },
         {

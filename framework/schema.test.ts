@@ -37,6 +37,7 @@ function validVpaf(): Vpaf {
         test: `Placeholder test for ${d.name} at stage ${s.stage}`,
         descriptor: `Placeholder behaviour for ${d.name} at stage ${s.stage}`,
         evidence_required: s.stage === 1 ? [] : ["signed_document", "founder_notes"],
+        evidence_groups: s.stage === 1 ? [] : [["signed_document"], ["founder_notes"]],
       })),
     })),
   };
@@ -138,14 +139,23 @@ describe("validateVpaf", () => {
   it("fails on an unknown evidence type", () => {
     const v = validVpaf();
     v.dimensions[0]!.stages[1]!.evidence_required.push("invoice");
-    expect(validateVpaf(v, BANNED)).toContain('CUS.2: unknown evidence type "invoice"');
+    const issues = validateVpaf(v, BANNED);
+    expect(issues).toContain('CUS.2: unknown evidence type "invoice"');
+    expect(issues).toContain('CUS.2: "invoice" is required but in no evidence group');
   });
 
   it("allows no proof at Stage 1 only", () => {
     const v = validVpaf();
     expect(v.dimensions[0]!.stages[0]!.evidence_required).toEqual([]);
     v.dimensions[0]!.stages[4]!.evidence_required = [];
+    v.dimensions[0]!.stages[4]!.evidence_groups = [];
     expect(validateVpaf(v, BANNED)).toContain("CUS.5: needs at least one proof type");
+  });
+
+  it("accepts either-or proof as one group", () => {
+    const v = validVpaf();
+    v.dimensions[0]!.stages[6]!.evidence_groups = [["signed_document", "founder_notes"]];
+    expect(validateVpaf(v, BANNED)).toEqual([]);
   });
 
   it("warns, without failing, about proof types that have no strong/weak rule", () => {

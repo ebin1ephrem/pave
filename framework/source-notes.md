@@ -1,6 +1,6 @@
-# VPAF source notes (v0.1 draft)
+# VPAF source notes (v1.0)
 
-Status: DRAFT for Mittu's review. Nothing here is final until each of the 54 stage tests is approved.
+Status: APPROVED by Merstra on 2026-11-16 (all 54 stage tests, count tiers, proof rules). Independent IP review is still outstanding and is required before public release.
 
 Purpose: the single source for the Venture Progression Assessment Framework (VPAF). `vpaf.v1.json` and `questions.v1.json` are generated from this file and from nothing else.
 
@@ -46,7 +46,7 @@ Stage numbers keep the same meaning as the scores already issued to past cohorts
 - MEDIUM: proof attached but weak, indirect, or partly missing.
 - LOW: written answer only, or proof contradicted elsewhere.
 
-## 5. Count tiers for founder answer options [PROPOSED]
+## 5. Count tiers for founder answer options
 
 Founders choose a described tier, never type a number.
 
@@ -57,7 +57,7 @@ Founders choose a described tier, never type a number.
 | Several | 5-14 |
 | Many | 15 or more |
 
-Thresholds are a starting proposal; Merstra to confirm per question.
+Confirmed by Merstra on 2026-11-16.
 
 ## 6. Proof catalogue
 
@@ -87,6 +87,13 @@ Thresholds are a starting proposal; Merstra to confirm per question.
 | Funder correspondence | Dated exchange with a named funder | List of funders to approach |
 | Commitment letter / term sheet | Signed or issued by the funder, to this entity | Verbal promise, or commitment to a different entity **[Ruling]** |
 | Bank or grant record | Shows funds received | Award announced but not received |
+| Any other proof named in section 7 (default) | Dated, and attributable to a named person or organisation | Undated, unsigned, or only the founder's own summary |
+
+How a stage's proofs combine: every proof listed for a stage is needed, except where the test itself says "or". The either-or cases are:
+- CUS 7: invoice or payment record, or pilot agreement.
+- BIZ 6: invoice or signed commitment at that price; and the delivery plan.
+- MOT 5: draft applications or engagement with an attorney; and record-keeping in use.
+- MOT 6: filing or registration receipt, or signed confidentiality agreements; and the infringement-risk review note.
 
 ---
 
@@ -175,8 +182,8 @@ What it tracks: what the venture has that others cannot easily copy, and how wel
 Rulings and notes
 - A filing or registration claimed in one answer and denied in another is not counted. **[Ruling]**
 - University or employer involvement must be resolved in writing before Stage 3 is passed.
-- OPEN: in the 2026 cohort a filed patent was held at Stage 5 "for consistency with peers", though a filing receipt meets the Stage 6 test. Decide: does Stage 6 require the infringement-risk review as well as the filing? As written here, it does.
-- OPEN: for ventures with no registrable asset (services, food, retail), confirm that trade secrets, brand registration and exclusive contracts can carry them through Stages 4-9.
+- DECIDED 2026-11-16: Stage 6 requires the infringement-risk review as well as the first formal protection. A filing with no review holds at Stage 5.
+- DECIDED 2026-11-16: ventures with no registrable asset (services, food, retail) can progress through Stages 4-9 on trade secrets, brand registration and exclusive contracts. At Stage 6, signed confidentiality agreements can stand in for a filing receipt.
 
 ### 7.5 Team (TEA)
 
@@ -226,10 +233,15 @@ Rulings and notes
 
 ---
 
-## 8. Decisions needed before v1.0
+## 8. Decisions
 
-1. Approve or edit each of the 54 stage tests.
-2. Confirm the count tiers in section 5.
-3. Resolve the two OPEN items under Moat.
-4. Confirm that stage numbers keep 1:1 meaning with scores issued to past cohorts.
-5. Independent IP review of this text before public release.
+Recorded 2026-11-16:
+1. All 54 stage tests approved.
+2. Count tiers in section 5 confirmed.
+3. Both Moat items resolved (see 7.4).
+4. Proofs not in the catalogue use the default strong/weak rule in section 6.
+5. A stage's proofs are all required unless its test says "or" (section 6).
+
+Still open:
+- Confirm that stage numbers keep 1:1 meaning with scores issued to past cohorts.
+- Independent IP review of this text before public release.

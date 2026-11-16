@@ -52,6 +52,11 @@ const stageSchema = z
     descriptor: text,
     /** Proof types that pass the test. Empty only at Stage 1, which needs no proof. */
     evidence_required: z.array(slug),
+    /**
+     * How the proof types combine. Every group must be met; within a group any one type is enough.
+     * [["a"], ["b"]] = a and b. [["a", "b"]] = a or b.
+     */
+    evidence_groups: z.array(z.array(slug).min(1)),
   })
   .strict();
 
@@ -182,6 +187,14 @@ export function validateVpaf(input: unknown, banned: string[]): string[] {
       for (const d of duplicates(cell.evidence_required)) issues.push(`${at}: duplicate evidence type "${d}"`);
       for (const id of cell.evidence_required) {
         if (!knownTypes.has(id)) issues.push(`${at}: unknown evidence type "${id}"`);
+      }
+      const grouped = cell.evidence_groups.flat();
+      for (const d of duplicates(grouped)) issues.push(`${at}: "${d}" appears in more than one evidence group`);
+      for (const id of cell.evidence_required) {
+        if (!grouped.includes(id)) issues.push(`${at}: "${id}" is required but in no evidence group`);
+      }
+      for (const id of grouped) {
+        if (!cell.evidence_required.includes(id)) issues.push(`${at}: "${id}" is grouped but not in evidence_required`);
       }
     }
   }

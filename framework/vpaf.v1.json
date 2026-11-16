@@ -175,326 +175,326 @@
     {
       "id": "segment_problem_statement",
       "label": "Written segment and problem statement",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "written_offer",
       "label": "Written offer",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "change_record",
       "label": "Record of changes made",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "pilot_agreement",
       "label": "Pilot agreement",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "customer_list",
       "label": "Customer list",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "onboarding_checklist",
       "label": "Onboarding checklist",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "retention_data",
       "label": "Retention and repeat-purchase data",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "reference_customers",
       "label": "Reference customers",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "deployment_record",
       "label": "Deployment record",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "user_logs",
       "label": "User logs",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "performance_data",
       "label": "Performance data from more than one user or site",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "volume_records",
       "label": "Volume records",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "support_maintenance_records",
       "label": "Support and maintenance records",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "written_model",
       "label": "Written model",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "price_discussion_record",
       "label": "Notes or survey showing price discussed with buyers",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "revised_model",
       "label": "Revised model",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "delivery_plan",
       "label": "Delivery plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "sales_records_by_channel",
       "label": "Sales records by channel",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "partner_agreement",
       "label": "Partner agreement",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "margin_trend",
       "label": "Margin trend",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "delivery_records",
       "label": "Delivery records",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "growth_plan",
       "label": "Growth plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "metrics_reviews",
       "label": "Regular metrics reviews over time",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "search_notes",
       "label": "Search notes",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "protection_plan",
       "label": "Written protection plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "draft_applications",
       "label": "Draft applications",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "attorney_engagement",
       "label": "Engagement with an attorney",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "record_keeping",
       "label": "Record-keeping in use",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "infringement_review_note",
       "label": "Infringement-risk review note",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "confidentiality_agreements",
       "label": "Signed confidentiality agreements",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "protection_revenue_plan",
       "label": "Plan linking protection to revenue",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "issued_grants_or_registrations",
       "label": "Grants or registrations issued",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "licensing_discussions",
       "label": "Licensing or partnership discussions",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "renewal_monitoring_records",
       "label": "Renewal and monitoring records",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "moat_value_record",
       "label": "Licence income, exclusivity or pricing advantage",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "team_correspondence",
       "label": "Notes or correspondence",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "gap_list",
       "label": "List of gaps",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "hiring_plan",
       "label": "Hiring plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "founder_agreement",
       "label": "Founder agreement",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "decision_records",
       "label": "Decision records",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "delivery_record_against_plan",
       "label": "Delivery record against plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "people_processes",
       "label": "Documented processes in use",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "governance_records",
       "label": "Board or governance records",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "leadership_structure",
       "label": "Leadership structure",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "milestone_list",
       "label": "Milestone list",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "data_pack",
       "label": "Data pack",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "outreach_plan",
       "label": "Outreach plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "milestone_capital_map",
       "label": "Milestone-to-capital map",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "use_of_funds_statement",
       "label": "Use-of-funds statement",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "funder_document_set",
       "label": "Document set a funder would ask for",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "runway_plan",
       "label": "Runway plan",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "management_accounts",
       "label": "Management accounts",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "capital_offers",
       "label": "Multiple offers or facilities",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     },
     {
       "id": "forecast_vs_actuals",
       "label": "Forecasts against actuals",
-      "strong_when": null,
-      "weak_when": null
+      "strong_when": "Dated, and attributable to a named person or organisation",
+      "weak_when": "Undated, unsigned, or only the founder's own summary"
     }
   ],
   "dimensions": [
@@ -508,7 +508,8 @@
           "band": "Explore",
           "test": "The customer and the problem are the founders' own belief; nobody outside the team has been asked.",
           "descriptor": "The customer and problem are the founders' own belief; nobody outside the team has been asked.",
-          "evidence_required": []
+          "evidence_required": [],
+          "evidence_groups": []
         },
         {
           "stage": 2,
@@ -517,6 +518,11 @@
           "descriptor": "Some potential customers have been spoken to, but what they said does not yet point one way.",
           "evidence_required": [
             "conversation_notes"
+          ],
+          "evidence_groups": [
+            [
+              "conversation_notes"
+            ]
           ]
         },
         {
@@ -527,6 +533,14 @@
           "evidence_required": [
             "segment_problem_statement",
             "conversation_notes"
+          ],
+          "evidence_groups": [
+            [
+              "segment_problem_statement"
+            ],
+            [
+              "conversation_notes"
+            ]
           ]
         },
         {
@@ -537,6 +551,14 @@
           "evidence_required": [
             "interview_log",
             "written_offer"
+          ],
+          "evidence_groups": [
+            [
+              "interview_log"
+            ],
+            [
+              "written_offer"
+            ]
           ]
         },
         {
@@ -547,6 +569,14 @@
           "evidence_required": [
             "user_test_record",
             "change_record"
+          ],
+          "evidence_groups": [
+            [
+              "user_test_record"
+            ],
+            [
+              "change_record"
+            ]
           ]
         },
         {
@@ -557,6 +587,14 @@
           "evidence_required": [
             "letter_of_intent",
             "pilot_plan"
+          ],
+          "evidence_groups": [
+            [
+              "letter_of_intent"
+            ],
+            [
+              "pilot_plan"
+            ]
           ]
         },
         {
@@ -567,6 +605,12 @@
           "evidence_required": [
             "invoice_or_payment_record",
             "pilot_agreement"
+          ],
+          "evidence_groups": [
+            [
+              "invoice_or_payment_record",
+              "pilot_agreement"
+            ]
           ]
         },
         {
@@ -578,6 +622,17 @@
             "customer_list",
             "pipeline_list",
             "onboarding_checklist"
+          ],
+          "evidence_groups": [
+            [
+              "customer_list"
+            ],
+            [
+              "pipeline_list"
+            ],
+            [
+              "onboarding_checklist"
+            ]
           ]
         },
         {
@@ -588,6 +643,14 @@
           "evidence_required": [
             "retention_data",
             "reference_customers"
+          ],
+          "evidence_groups": [
+            [
+              "retention_data"
+            ],
+            [
+              "reference_customers"
+            ]
           ]
         }
       ]
@@ -602,7 +665,8 @@
           "band": "Explore",
           "test": "The product is described but nothing has been built.",
           "descriptor": "The product is described but nothing has been built.",
-          "evidence_required": []
+          "evidence_required": [],
+          "evidence_groups": []
         },
         {
           "stage": 2,
@@ -611,6 +675,11 @@
           "descriptor": "A written plan says what will be built first and how it will be tested.",
           "evidence_required": [
             "design_document"
+          ],
+          "evidence_groups": [
+            [
+              "design_document"
+            ]
           ]
         },
         {
@@ -620,6 +689,11 @@
           "descriptor": "A first build exists; it works inconsistently and has had little testing.",
           "evidence_required": [
             "demo_media"
+          ],
+          "evidence_groups": [
+            [
+              "demo_media"
+            ]
           ]
         },
         {
@@ -629,6 +703,11 @@
           "descriptor": "The core functions work in the team's own controlled tests, with measured results.",
           "evidence_required": [
             "test_report"
+          ],
+          "evidence_groups": [
+            [
+              "test_report"
+            ]
           ]
         },
         {
@@ -638,6 +717,11 @@
           "descriptor": "The build has been changed because of test results, and repeat tests show it failing less often.",
           "evidence_required": [
             "test_report"
+          ],
+          "evidence_groups": [
+            [
+              "test_report"
+            ]
           ]
         },
         {
@@ -647,6 +731,11 @@
           "descriptor": "The product has worked in conditions close to real use, outside the team's own bench or lab.",
           "evidence_required": [
             "field_trial_log"
+          ],
+          "evidence_groups": [
+            [
+              "field_trial_log"
+            ]
           ]
         },
         {
@@ -657,6 +746,14 @@
           "evidence_required": [
             "deployment_record",
             "user_logs"
+          ],
+          "evidence_groups": [
+            [
+              "deployment_record"
+            ],
+            [
+              "user_logs"
+            ]
           ]
         },
         {
@@ -666,6 +763,11 @@
           "descriptor": "The product performs consistently across several users or sites.",
           "evidence_required": [
             "performance_data"
+          ],
+          "evidence_groups": [
+            [
+              "performance_data"
+            ]
           ]
         },
         {
@@ -676,6 +778,14 @@
           "evidence_required": [
             "volume_records",
             "support_maintenance_records"
+          ],
+          "evidence_groups": [
+            [
+              "volume_records"
+            ],
+            [
+              "support_maintenance_records"
+            ]
           ]
         }
       ]
@@ -690,7 +800,8 @@
           "band": "Explore",
           "test": "The team cannot say who pays or why.",
           "descriptor": "The team cannot say who pays or why.",
-          "evidence_required": []
+          "evidence_required": [],
+          "evidence_groups": []
         },
         {
           "stage": 2,
@@ -699,6 +810,11 @@
           "descriptor": "Who pays, for what, and how the money is collected is written down.",
           "evidence_required": [
             "written_model"
+          ],
+          "evidence_groups": [
+            [
+              "written_model"
+            ]
           ]
         },
         {
@@ -708,6 +824,11 @@
           "descriptor": "Cost and price figures are written down, but they are the team's own estimates.",
           "evidence_required": [
             "cost_price_sheet"
+          ],
+          "evidence_groups": [
+            [
+              "cost_price_sheet"
+            ]
           ]
         },
         {
@@ -718,6 +839,14 @@
           "evidence_required": [
             "price_discussion_record",
             "revised_model"
+          ],
+          "evidence_groups": [
+            [
+              "price_discussion_record"
+            ],
+            [
+              "revised_model"
+            ]
           ]
         },
         {
@@ -728,6 +857,14 @@
           "evidence_required": [
             "cost_price_sheet",
             "go_to_market_plan"
+          ],
+          "evidence_groups": [
+            [
+              "cost_price_sheet"
+            ],
+            [
+              "go_to_market_plan"
+            ]
           ]
         },
         {
@@ -739,6 +876,15 @@
             "invoice_or_payment_record",
             "letter_of_intent",
             "delivery_plan"
+          ],
+          "evidence_groups": [
+            [
+              "invoice_or_payment_record",
+              "letter_of_intent"
+            ],
+            [
+              "delivery_plan"
+            ]
           ]
         },
         {
@@ -749,6 +895,14 @@
           "evidence_required": [
             "sales_records_by_channel",
             "partner_agreement"
+          ],
+          "evidence_groups": [
+            [
+              "sales_records_by_channel"
+            ],
+            [
+              "partner_agreement"
+            ]
           ]
         },
         {
@@ -760,6 +914,17 @@
             "margin_trend",
             "delivery_records",
             "growth_plan"
+          ],
+          "evidence_groups": [
+            [
+              "margin_trend"
+            ],
+            [
+              "delivery_records"
+            ],
+            [
+              "growth_plan"
+            ]
           ]
         },
         {
@@ -769,6 +934,11 @@
           "descriptor": "The model sustains growth and its key figures are reviewed on a fixed schedule.",
           "evidence_required": [
             "metrics_reviews"
+          ],
+          "evidence_groups": [
+            [
+              "metrics_reviews"
+            ]
           ]
         }
       ]
@@ -783,7 +953,8 @@
           "band": "Explore",
           "test": "The team cannot say what is hard to copy, or who owns what has been created.",
           "descriptor": "The team cannot say what is hard to copy, or who owns what has been created.",
-          "evidence_required": []
+          "evidence_required": [],
+          "evidence_groups": []
         },
         {
           "stage": 2,
@@ -792,6 +963,11 @@
           "descriptor": "The team has started checking what already exists: similar products, published work, existing rights.",
           "evidence_required": [
             "search_notes"
+          ],
+          "evidence_groups": [
+            [
+              "search_notes"
+            ]
           ]
         },
         {
@@ -802,6 +978,14 @@
           "evidence_required": [
             "uniqueness_note",
             "ownership_agreement"
+          ],
+          "evidence_groups": [
+            [
+              "uniqueness_note"
+            ],
+            [
+              "ownership_agreement"
+            ]
           ]
         },
         {
@@ -811,6 +995,11 @@
           "descriptor": "For each asset, a protection route has been chosen (register, keep secret, or contract) with reasons.",
           "evidence_required": [
             "protection_plan"
+          ],
+          "evidence_groups": [
+            [
+              "protection_plan"
+            ]
           ]
         },
         {
@@ -822,6 +1011,15 @@
             "draft_applications",
             "attorney_engagement",
             "record_keeping"
+          ],
+          "evidence_groups": [
+            [
+              "draft_applications",
+              "attorney_engagement"
+            ],
+            [
+              "record_keeping"
+            ]
           ]
         },
         {
@@ -833,6 +1031,15 @@
             "filing_receipt",
             "infringement_review_note",
             "confidentiality_agreements"
+          ],
+          "evidence_groups": [
+            [
+              "filing_receipt",
+              "confidentiality_agreements"
+            ],
+            [
+              "infringement_review_note"
+            ]
           ]
         },
         {
@@ -843,6 +1050,14 @@
           "evidence_required": [
             "filing_receipt",
             "protection_revenue_plan"
+          ],
+          "evidence_groups": [
+            [
+              "filing_receipt"
+            ],
+            [
+              "protection_revenue_plan"
+            ]
           ]
         },
         {
@@ -853,6 +1068,14 @@
           "evidence_required": [
             "issued_grants_or_registrations",
             "licensing_discussions"
+          ],
+          "evidence_groups": [
+            [
+              "issued_grants_or_registrations"
+            ],
+            [
+              "licensing_discussions"
+            ]
           ]
         },
         {
@@ -863,6 +1086,14 @@
           "evidence_required": [
             "renewal_monitoring_records",
             "moat_value_record"
+          ],
+          "evidence_groups": [
+            [
+              "renewal_monitoring_records"
+            ],
+            [
+              "moat_value_record"
+            ]
           ]
         }
       ]
@@ -877,7 +1108,8 @@
           "band": "Explore",
           "test": "One founder, with key skills missing.",
           "descriptor": "There is one founder, with key skills missing.",
-          "evidence_required": []
+          "evidence_required": [],
+          "evidence_groups": []
         },
         {
           "stage": 2,
@@ -886,6 +1118,11 @@
           "descriptor": "Talks are under way with possible co-founders or first team members; roles are not agreed.",
           "evidence_required": [
             "team_correspondence"
+          ],
+          "evidence_groups": [
+            [
+              "team_correspondence"
+            ]
           ]
         },
         {
@@ -895,6 +1132,11 @@
           "descriptor": "A core team is in place; roles are partly agreed and time commitment is uneven.",
           "evidence_required": [
             "role_map"
+          ],
+          "evidence_groups": [
+            [
+              "role_map"
+            ]
           ]
         },
         {
@@ -906,6 +1148,17 @@
             "role_map",
             "weekly_tracker",
             "gap_list"
+          ],
+          "evidence_groups": [
+            [
+              "role_map"
+            ],
+            [
+              "weekly_tracker"
+            ],
+            [
+              "gap_list"
+            ]
           ]
         },
         {
@@ -916,6 +1169,14 @@
           "evidence_required": [
             "adviser_list",
             "hiring_plan"
+          ],
+          "evidence_groups": [
+            [
+              "adviser_list"
+            ],
+            [
+              "hiring_plan"
+            ]
           ]
         },
         {
@@ -927,6 +1188,17 @@
             "weekly_tracker",
             "founder_agreement",
             "decision_records"
+          ],
+          "evidence_groups": [
+            [
+              "weekly_tracker"
+            ],
+            [
+              "founder_agreement"
+            ],
+            [
+              "decision_records"
+            ]
           ]
         },
         {
@@ -937,6 +1209,14 @@
           "evidence_required": [
             "role_map",
             "delivery_record_against_plan"
+          ],
+          "evidence_groups": [
+            [
+              "role_map"
+            ],
+            [
+              "delivery_record_against_plan"
+            ]
           ]
         },
         {
@@ -946,6 +1226,11 @@
           "descriptor": "Hiring, onboarding and performance review run as systems, without founders handling each case.",
           "evidence_required": [
             "people_processes"
+          ],
+          "evidence_groups": [
+            [
+              "people_processes"
+            ]
           ]
         },
         {
@@ -956,6 +1241,14 @@
           "evidence_required": [
             "governance_records",
             "leadership_structure"
+          ],
+          "evidence_groups": [
+            [
+              "governance_records"
+            ],
+            [
+              "leadership_structure"
+            ]
           ]
         }
       ]
@@ -970,7 +1263,8 @@
           "band": "Explore",
           "test": "No view of how much money is needed or how long cash will last.",
           "descriptor": "The team has no view of how much money is needed or how long cash will last.",
-          "evidence_required": []
+          "evidence_required": [],
+          "evidence_groups": []
         },
         {
           "stage": 2,
@@ -979,6 +1273,11 @@
           "descriptor": "The team knows roughly what it needs and has a rough budget.",
           "evidence_required": [
             "budget_runway_sheet"
+          ],
+          "evidence_groups": [
+            [
+              "budget_runway_sheet"
+            ]
           ]
         },
         {
@@ -989,6 +1288,14 @@
           "evidence_required": [
             "pitch_deck",
             "milestone_list"
+          ],
+          "evidence_groups": [
+            [
+              "pitch_deck"
+            ],
+            [
+              "milestone_list"
+            ]
           ]
         },
         {
@@ -1000,6 +1307,17 @@
             "pitch_deck",
             "data_pack",
             "outreach_plan"
+          ],
+          "evidence_groups": [
+            [
+              "pitch_deck"
+            ],
+            [
+              "data_pack"
+            ],
+            [
+              "outreach_plan"
+            ]
           ]
         },
         {
@@ -1010,6 +1328,14 @@
           "evidence_required": [
             "funder_correspondence",
             "milestone_capital_map"
+          ],
+          "evidence_groups": [
+            [
+              "funder_correspondence"
+            ],
+            [
+              "milestone_capital_map"
+            ]
           ]
         },
         {
@@ -1020,6 +1346,14 @@
           "evidence_required": [
             "use_of_funds_statement",
             "funder_document_set"
+          ],
+          "evidence_groups": [
+            [
+              "use_of_funds_statement"
+            ],
+            [
+              "funder_document_set"
+            ]
           ]
         },
         {
@@ -1030,6 +1364,14 @@
           "evidence_required": [
             "commitment_letter",
             "runway_plan"
+          ],
+          "evidence_groups": [
+            [
+              "commitment_letter"
+            ],
+            [
+              "runway_plan"
+            ]
           ]
         },
         {
@@ -1040,6 +1382,14 @@
           "evidence_required": [
             "bank_or_grant_record",
             "management_accounts"
+          ],
+          "evidence_groups": [
+            [
+              "bank_or_grant_record"
+            ],
+            [
+              "management_accounts"
+            ]
           ]
         },
         {
@@ -1050,6 +1400,14 @@
           "evidence_required": [
             "capital_offers",
             "forecast_vs_actuals"
+          ],
+          "evidence_groups": [
+            [
+              "capital_offers"
+            ],
+            [
+              "forecast_vs_actuals"
+            ]
           ]
         }
       ]
