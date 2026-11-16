@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { parseBannedTerms, validateQuestions, validateVpaf, vpafSchema } from "../framework/schema";
+import { parseBannedTerms, validateQuestions, validateVpaf, vpafSchema, vpafWarnings } from "../framework/schema";
 
 const dir = resolve(import.meta.dirname, "../framework");
 const vpafPath = resolve(dir, "vpaf.v1.json");
@@ -36,4 +36,13 @@ if (existsSync(questionsPath)) {
 }
 
 if (issues.length > 0) fail(issues);
+
+// Undecided items in the source notes: reported, and fatal only with --strict.
+const parsedVpaf = vpafSchema.safeParse(vpafRaw);
+const warnings = parsedVpaf.success ? vpafWarnings(parsedVpaf.data) : [];
+if (warnings.length > 0) {
+  for (const w of warnings) console.warn(`  ! ${w}`);
+  console.warn(`${warnings.length} open item(s) in the source notes.`);
+  if (process.argv.includes("--strict")) process.exit(1);
+}
 console.log("Framework valid: 6 dimensions x 9 stages" + (existsSync(questionsPath) ? ", question bank OK." : " (no question bank yet)."));

@@ -6,6 +6,7 @@ import {
   parseBannedTerms,
   validateQuestions,
   validateVpaf,
+  vpafWarnings,
   wordCount,
   type QuestionBank,
   type Vpaf,
@@ -18,19 +19,24 @@ function validVpaf(): Vpaf {
   return {
     framework: "VPAF",
     version: "1",
+    count_tiers: [
+      { id: "none", label: "None", min: 0, max: 0 },
+      { id: "a_few", label: "A few", min: 1, max: null },
+    ],
     evidence_types: [
-      { id: "signed_document", label: "Signed document" },
-      { id: "founder_notes", label: "Founder notes" },
+      { id: "signed_document", label: "Signed document", strong_when: "Signed and dated", weak_when: "Unsigned draft" },
+      { id: "founder_notes", label: "Founder notes", strong_when: null, weak_when: null },
     ],
     dimensions: DIMENSIONS.map((d) => ({
       code: d.code,
       name: d.name,
+      tracks: `How far ${d.name} has progressed`,
       stages: STAGES.map((s) => ({
         stage: s.stage,
         band: s.band,
+        test: `Placeholder test for ${d.name} at stage ${s.stage}`,
         descriptor: `Placeholder behaviour for ${d.name} at stage ${s.stage}`,
-        evidence_required: ["signed_document", "founder_notes"],
-        evidence_strength: { strong: ["signed_document"], weak: ["founder_notes"] },
+        evidence_required: s.stage === 1 ? [] : ["signed_document", "founder_notes"],
       })),
     })),
   };
@@ -129,12 +135,23 @@ describe("validateVpaf", () => {
     expect(validateVpaf(v, BANNED).some((i) => i.includes('"level"'))).toBe(true);
   });
 
-  it("fails on unknown or unrated evidence types", () => {
+  it("fails on an unknown evidence type", () => {
     const v = validVpaf();
-    v.dimensions[0]!.stages[0]!.evidence_required.push("invoice");
-    const issues = validateVpaf(v, BANNED);
-    expect(issues).toContain('CUS.1: unknown evidence type "invoice"');
-    expect(issues).toContain('CUS.1: "invoice" is required but not rated strong or weak');
+    v.dimensions[0]!.stages[1]!.evidence_required.push("invoice");
+    expect(validateVpaf(v, BANNED)).toContain('CUS.2: unknown evidence type "invoice"');
+  });
+
+  it("allows no proof at Stage 1 only", () => {
+    const v = validVpaf();
+    expect(v.dimensions[0]!.stages[0]!.evidence_required).toEqual([]);
+    v.dimensions[0]!.stages[4]!.evidence_required = [];
+    expect(validateVpaf(v, BANNED)).toContain("CUS.5: needs at least one proof type");
+  });
+
+  it("warns, without failing, about proof types that have no strong/weak rule", () => {
+    const v = validVpaf();
+    expect(validateVpaf(v, BANNED)).toEqual([]);
+    expect(vpafWarnings(v)).toEqual(['evidence type "founder_notes": no strong/weak rule']);
   });
 });
 

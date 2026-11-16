@@ -37,24 +37,37 @@ const stageNumber = z.number().int().min(1).max(9);
 const slug = z.string().regex(/^[a-z][a-z0-9_]*$/, "use lower_snake_case");
 const text = z.string().trim().min(1);
 
-const evidenceTypeSchema = z.object({ id: slug, label: text }).strict();
+/** strong_when / weak_when come from the proof catalogue. null = the source notes give no rule yet. */
+const evidenceTypeSchema = z
+  .object({ id: slug, label: text, strong_when: text.nullable(), weak_when: text.nullable() })
+  .strict();
 
 const stageSchema = z
   .object({
     stage: stageNumber,
     band: z.enum(["Explore", "Validate", "Scale"]),
+    /** The full pass/fail test, as written in the source notes. */
+    test: text,
+    /** Short display form of the test: one sentence, max 20 words. */
     descriptor: text,
-    evidence_required: z.array(slug).min(1),
-    evidence_strength: z.object({ strong: z.array(slug).min(1), weak: z.array(slug) }).strict(),
+    /** Proof types that pass the test. Empty only at Stage 1, which needs no proof. */
+    evidence_required: z.array(slug),
   })
+  .strict();
+
+const countTierSchema = z
+  .object({ id: slug, label: text, min: z.number().int().min(0), max: z.number().int().min(0).nullable() })
   .strict();
 
 export const vpafSchema = z
   .object({
     framework: z.literal("VPAF"),
     version: text,
+    count_tiers: z.array(countTierSchema).min(2),
     evidence_types: z.array(evidenceTypeSchema).min(1),
-    dimensions: z.array(z.object({ code: dimensionCode, name: text, stages: z.array(stageSchema) }).strict()),
+    dimensions: z.array(
+      z.object({ code: dimensionCode, name: text, tracks: text, stages: z.array(stageSchema) }).strict(),
+    ),
   })
   .strict();
 
@@ -163,21 +176,24 @@ export function validateVpaf(input: unknown, banned: string[]): string[] {
       if (words > MAX_DESCRIPTOR_WORDS) issues.push(`${at}: descriptor has ${words} words, max ${MAX_DESCRIPTOR_WORDS}`);
       if (/[.!?]\s+\S/.test(cell.descriptor)) issues.push(`${at}: descriptor must be one sentence`);
 
-      const { strong, weak } = cell.evidence_strength;
-      for (const id of [...cell.evidence_required, ...strong, ...weak]) {
-        if (!knownTypes.has(id)) issues.push(`${at}: unknown evidence type "${id}"`);
-      }
-      for (const id of strong) if (weak.includes(id)) issues.push(`${at}: "${id}" is both strong and weak`);
+      if (cell.evidence_required.length === 0 && s.stage !== 1) issues.push(`${at}: needs at least one proof type`);
+      for (const d of duplicates(cell.evidence_required)) issues.push(`${at}: duplicate evidence type "${d}"`);
       for (const id of cell.evidence_required) {
-        if (!strong.includes(id) && !weak.includes(id)) issues.push(`${at}: "${id}" is required but not rated strong or weak`);
-      }
-      for (const id of [...strong, ...weak]) {
-        if (!cell.evidence_required.includes(id)) issues.push(`${at}: "${id}" is rated but not in evidence_required`);
+        if (!knownTypes.has(id)) issues.push(`${at}: unknown evidence type "${id}"`);
       }
     }
   }
 
   return [...issues, ...findBannedTerms(vpaf, [...banned, ...FRAMEWORK_FORBIDDEN_WORDS], "vpaf")];
+}
+
+/** Non-fatal gaps: things the source notes have not decided yet. */
+export function vpafWarnings(vpaf: Vpaf): string[] {
+  const used = new Set(vpaf.dimensions.flatMap((d) => d.stages.flatMap((s) => s.evidence_required)));
+  return vpaf.evidence_types.flatMap((t) => [
+    ...(t.strong_when === null || t.weak_when === null ? [`evidence type "${t.id}": no strong/weak rule`] : []),
+    ...(used.has(t.id) ? [] : [`evidence type "${t.id}": not required by any stage`]),
+  ]);
 }
 
 /** Returns a list of problems. Empty list = valid. Needs a valid VPAF for evidence-type lookups. */

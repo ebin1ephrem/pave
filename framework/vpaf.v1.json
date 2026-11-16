@@ -1,1227 +1,1056 @@
 {
   "framework": "VPAF",
   "version": "1",
-  "evidence_types": [
+  "count_tiers": [
     {
-      "id": "concept_note",
-      "label": "Written concept note"
+      "id": "none",
+      "label": "None",
+      "min": 0,
+      "max": 0
     },
     {
-      "id": "founder_notes",
-      "label": "Founder's own notes"
+      "id": "a_few",
+      "label": "A few",
+      "min": 1,
+      "max": 4
+    },
+    {
+      "id": "several",
+      "label": "Several",
+      "min": 5,
+      "max": 14
+    },
+    {
+      "id": "many",
+      "label": "Many",
+      "min": 15,
+      "max": null
+    }
+  ],
+  "evidence_types": [
+    {
+      "id": "conversation_notes",
+      "label": "Conversation / interview notes",
+      "strong_when": "Dated, names the person or organisation, records what they said",
+      "weak_when": "Undated, anonymous, or only the founder's summary"
     },
     {
       "id": "interview_log",
-      "label": "Interview log or synthesis"
+      "label": "Interview log",
+      "strong_when": "Count, segment, and the repeated pattern are shown",
+      "weak_when": "A list of names with no content"
     },
     {
-      "id": "customer_profile",
-      "label": "Written customer profile"
+      "id": "user_test_record",
+      "label": "User test record",
+      "strong_when": "Who tested, what version, what happened, what changed after",
+      "weak_when": "\"Users liked it\""
     },
     {
-      "id": "user_feedback_record",
-      "label": "User feedback record"
+      "id": "letter_of_intent",
+      "label": "Letter of intent / MoU",
+      "strong_when": "Signed, dated, names both parties and the scope",
+      "weak_when": "Unsigned draft, email expressing interest"
     },
     {
-      "id": "usage_data",
-      "label": "Usage data export"
+      "id": "pilot_plan",
+      "label": "Pilot plan",
+      "strong_when": "Agreed with the customer, with success measures",
+      "weak_when": "Internal plan the customer has not seen"
     },
     {
-      "id": "signed_loi",
-      "label": "Signed letter of intent"
+      "id": "invoice_or_payment_record",
+      "label": "Invoice / payment record",
+      "strong_when": "Issued to a named customer, payment visible",
+      "weak_when": "Quotation or proforma only"
     },
     {
-      "id": "pilot_agreement",
-      "label": "Signed pilot agreement"
-    },
-    {
-      "id": "email_confirmation",
-      "label": "Email confirmation from customer"
-    },
-    {
-      "id": "invoice",
-      "label": "Invoice"
-    },
-    {
-      "id": "payment_record",
-      "label": "Payment record"
-    },
-    {
-      "id": "signed_contract",
-      "label": "Signed customer contract"
-    },
-    {
-      "id": "pipeline_report",
-      "label": "Sales pipeline report"
-    },
-    {
-      "id": "retention_data",
-      "label": "Retention or repeat-purchase data"
-    },
-    {
-      "id": "customer_reference",
-      "label": "Customer reference or testimonial"
+      "id": "pipeline_list",
+      "label": "Pipeline list",
+      "strong_when": "Named prospects with status and next step",
+      "weak_when": "Target list with no contact made"
     },
     {
       "id": "design_document",
-      "label": "Design or specification document"
+      "label": "Design document / schematic",
+      "strong_when": "Specific enough to build from",
+      "weak_when": "Concept sketch"
     },
     {
-      "id": "prototype_demo",
-      "label": "Prototype demonstration (video or link)"
+      "id": "demo_media",
+      "label": "Demo, photo, video",
+      "strong_when": "Shows the actual build working",
+      "weak_when": "Render or mock-up"
     },
     {
       "id": "test_report",
-      "label": "Internal test report"
+      "label": "Test report",
+      "strong_when": "Method, measured values, pass/fail against a target",
+      "weak_when": "Statement that tests were done"
     },
     {
-      "id": "third_party_test_report",
-      "label": "Third-party test report"
+      "id": "field_trial_log",
+      "label": "Field or site trial log",
+      "strong_when": "Location, dates, conditions, results",
+      "weak_when": "Planned trial"
     },
     {
-      "id": "field_trial_report",
-      "label": "Field trial report"
+      "id": "cost_price_sheet",
+      "label": "Cost and price sheet",
+      "strong_when": "Uses real purchase or delivery figures",
+      "weak_when": "Estimates only"
     },
     {
-      "id": "deployment_record",
-      "label": "Deployment record"
+      "id": "go_to_market_plan",
+      "label": "Go-to-market plan",
+      "strong_when": "Named channels, steps and owners",
+      "weak_when": "Generic list of channels"
     },
     {
-      "id": "release_log",
-      "label": "Release or change log"
-    },
-    {
-      "id": "support_log",
-      "label": "Support and fault log"
-    },
-    {
-      "id": "uptime_report",
-      "label": "Reliability or uptime report"
-    },
-    {
-      "id": "business_model_draft",
-      "label": "Business model draft"
-    },
-    {
-      "id": "pricing_document",
-      "label": "Pricing document"
-    },
-    {
-      "id": "cost_breakdown",
-      "label": "Cost breakdown"
-    },
-    {
-      "id": "unit_economics_model",
-      "label": "Unit economics model"
-    },
-    {
-      "id": "channel_data",
-      "label": "Sales by channel data"
-    },
-    {
-      "id": "management_accounts",
-      "label": "Management accounts"
-    },
-    {
-      "id": "audited_accounts",
-      "label": "Audited accounts"
-    },
-    {
-      "id": "landscape_review",
-      "label": "Review of competing solutions and existing rights"
+      "id": "uniqueness_note",
+      "label": "Uniqueness / invention note",
+      "strong_when": "States what is new and who created it",
+      "weak_when": "Marketing description"
     },
     {
       "id": "ownership_agreement",
-      "label": "Ownership or assignment agreement"
-    },
-    {
-      "id": "protection_plan",
-      "label": "Written protection plan"
-    },
-    {
-      "id": "legal_opinion",
-      "label": "Legal adviser's opinion or draft"
+      "label": "Ownership or assignment agreement",
+      "strong_when": "Signed by all contributors and any institution",
+      "weak_when": "Verbal understanding"
     },
     {
       "id": "filing_receipt",
-      "label": "Filing receipt"
+      "label": "Filing or registration receipt",
+      "strong_when": "Official number and date",
+      "weak_when": "\"Filing planned\""
     },
     {
-      "id": "grant_certificate",
-      "label": "Grant or registration certificate"
+      "id": "role_map",
+      "label": "Role map / organisation chart",
+      "strong_when": "Named people, time commitment, responsibilities",
+      "weak_when": "Titles only"
     },
     {
-      "id": "license_agreement",
-      "label": "Licence or exclusivity agreement"
+      "id": "weekly_tracker",
+      "label": "Weekly tracker",
+      "strong_when": "Several consecutive weeks of goals and reviews",
+      "weak_when": "A blank template"
     },
     {
-      "id": "team_roster",
-      "label": "Team roster with roles and time commitment"
+      "id": "adviser_list",
+      "label": "Adviser list",
+      "strong_when": "Named, independent of the founders, with evidence of activity",
+      "weak_when": "Names only, or relatives of founders"
     },
     {
-      "id": "meeting_record",
-      "label": "Meeting record"
-    },
-    {
-      "id": "founder_agreement",
-      "label": "Founders' agreement"
-    },
-    {
-      "id": "cap_table",
-      "label": "Cap table"
-    },
-    {
-      "id": "advisor_agreement",
-      "label": "Adviser agreement"
-    },
-    {
-      "id": "hiring_plan",
-      "label": "Hiring plan"
-    },
-    {
-      "id": "board_minutes",
-      "label": "Board minutes"
-    },
-    {
-      "id": "org_chart",
-      "label": "Organisation chart"
-    },
-    {
-      "id": "employment_contract",
-      "label": "Employment contract"
-    },
-    {
-      "id": "performance_review_record",
-      "label": "Performance review record"
-    },
-    {
-      "id": "budget",
-      "label": "Budget"
+      "id": "budget_runway_sheet",
+      "label": "Budget / runway sheet",
+      "strong_when": "Monthly spend, cash in hand, months remaining",
+      "weak_when": "A single total"
     },
     {
       "id": "pitch_deck",
-      "label": "Pitch deck"
-    },
-    {
-      "id": "cash_flow_forecast",
-      "label": "Cash flow forecast"
-    },
-    {
-      "id": "investor_log",
-      "label": "Funder contact log"
+      "label": "Pitch deck",
+      "strong_when": "Complete: problem, solution, market, traction, team, ask",
+      "weak_when": "Partial or template slides"
     },
     {
       "id": "funder_correspondence",
-      "label": "Correspondence with funders"
+      "label": "Funder correspondence",
+      "strong_when": "Dated exchange with a named funder",
+      "weak_when": "List of funders to approach"
     },
     {
-      "id": "data_room_index",
-      "label": "Data room index"
+      "id": "commitment_letter",
+      "label": "Commitment letter / term sheet",
+      "strong_when": "Signed or issued by the funder, to this entity",
+      "weak_when": "Verbal promise, or commitment to a different entity"
     },
     {
-      "id": "term_sheet",
-      "label": "Term sheet or commitment letter"
+      "id": "bank_or_grant_record",
+      "label": "Bank or grant record",
+      "strong_when": "Shows funds received",
+      "weak_when": "Award announced but not received"
     },
     {
-      "id": "bank_statement_extract",
-      "label": "Bank statement extract"
+      "id": "segment_problem_statement",
+      "label": "Written segment and problem statement",
+      "strong_when": null,
+      "weak_when": null
     },
     {
-      "id": "funding_agreement",
-      "label": "Signed funding agreement"
+      "id": "written_offer",
+      "label": "Written offer",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "change_record",
+      "label": "Record of changes made",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "pilot_agreement",
+      "label": "Pilot agreement",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "customer_list",
+      "label": "Customer list",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "onboarding_checklist",
+      "label": "Onboarding checklist",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "retention_data",
+      "label": "Retention and repeat-purchase data",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "reference_customers",
+      "label": "Reference customers",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "deployment_record",
+      "label": "Deployment record",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "user_logs",
+      "label": "User logs",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "performance_data",
+      "label": "Performance data from more than one user or site",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "volume_records",
+      "label": "Volume records",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "support_maintenance_records",
+      "label": "Support and maintenance records",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "written_model",
+      "label": "Written model",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "price_discussion_record",
+      "label": "Notes or survey showing price discussed with buyers",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "revised_model",
+      "label": "Revised model",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "delivery_plan",
+      "label": "Delivery plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "sales_records_by_channel",
+      "label": "Sales records by channel",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "partner_agreement",
+      "label": "Partner agreement",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "margin_trend",
+      "label": "Margin trend",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "delivery_records",
+      "label": "Delivery records",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "growth_plan",
+      "label": "Growth plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "metrics_reviews",
+      "label": "Regular metrics reviews over time",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "search_notes",
+      "label": "Search notes",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "protection_plan",
+      "label": "Written protection plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "draft_applications",
+      "label": "Draft applications",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "attorney_engagement",
+      "label": "Engagement with an attorney",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "record_keeping",
+      "label": "Record-keeping in use",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "infringement_review_note",
+      "label": "Infringement-risk review note",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "confidentiality_agreements",
+      "label": "Signed confidentiality agreements",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "protection_revenue_plan",
+      "label": "Plan linking protection to revenue",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "issued_grants_or_registrations",
+      "label": "Grants or registrations issued",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "licensing_discussions",
+      "label": "Licensing or partnership discussions",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "renewal_monitoring_records",
+      "label": "Renewal and monitoring records",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "moat_value_record",
+      "label": "Licence income, exclusivity or pricing advantage",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "team_correspondence",
+      "label": "Notes or correspondence",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "gap_list",
+      "label": "List of gaps",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "hiring_plan",
+      "label": "Hiring plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "founder_agreement",
+      "label": "Founder agreement",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "decision_records",
+      "label": "Decision records",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "delivery_record_against_plan",
+      "label": "Delivery record against plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "people_processes",
+      "label": "Documented processes in use",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "governance_records",
+      "label": "Board or governance records",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "leadership_structure",
+      "label": "Leadership structure",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "milestone_list",
+      "label": "Milestone list",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "data_pack",
+      "label": "Data pack",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "outreach_plan",
+      "label": "Outreach plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "milestone_capital_map",
+      "label": "Milestone-to-capital map",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "use_of_funds_statement",
+      "label": "Use-of-funds statement",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "funder_document_set",
+      "label": "Document set a funder would ask for",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "runway_plan",
+      "label": "Runway plan",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "management_accounts",
+      "label": "Management accounts",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "capital_offers",
+      "label": "Multiple offers or facilities",
+      "strong_when": null,
+      "weak_when": null
+    },
+    {
+      "id": "forecast_vs_actuals",
+      "label": "Forecasts against actuals",
+      "strong_when": null,
+      "weak_when": null
     }
   ],
   "dimensions": [
     {
       "code": "CUS",
       "name": "Customer",
+      "tracks": "how far the venture has gone from believing there is a customer to winning and keeping customers repeatedly.",
       "stages": [
         {
           "stage": 1,
           "band": "Explore",
-          "descriptor": "The team has written down who it believes has the problem, without yet speaking to any of them.",
-          "evidence_required": [
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "concept_note"
-            ],
-            "weak": []
-          }
+          "test": "The customer and the problem are the founders' own belief; nobody outside the team has been asked.",
+          "descriptor": "The customer and problem are the founders' own belief; nobody outside the team has been asked.",
+          "evidence_required": []
         },
         {
           "stage": 2,
           "band": "Explore",
-          "descriptor": "The team has held first conversations with people in the target group and recorded what they said.",
+          "test": "Some potential customers have been spoken to, but what they said does not yet point one way.",
+          "descriptor": "Some potential customers have been spoken to, but what they said does not yet point one way.",
           "evidence_required": [
-            "interview_log",
-            "founder_notes"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "interview_log"
-            ],
-            "weak": [
-              "founder_notes"
-            ]
-          }
+            "conversation_notes"
+          ]
         },
         {
           "stage": 3,
           "band": "Explore",
-          "descriptor": "The team has named one specific customer group and the problem it faces, based on recorded conversations.",
+          "test": "The team can name one specific customer group and state its problem in a sentence; interest so far is verbal.",
+          "descriptor": "The team names one specific customer group and states its problem in a sentence; interest is verbal only.",
           "evidence_required": [
-            "customer_profile",
-            "interview_log"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "customer_profile",
-              "interview_log"
-            ],
-            "weak": []
-          }
+            "segment_problem_statement",
+            "conversation_notes"
+          ]
         },
         {
           "stage": 4,
           "band": "Validate",
-          "descriptor": "Repeated interviews with the chosen customer group show the same problem, and the team can state why they would switch.",
+          "test": "Interviews with that group keep confirming the same problem, and a written offer to them exists.",
+          "descriptor": "Interviews with that group keep confirming the same problem, and a written offer to them exists.",
           "evidence_required": [
             "interview_log",
-            "customer_profile"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "interview_log"
-            ],
-            "weak": [
-              "customer_profile"
-            ]
-          }
+            "written_offer"
+          ]
         },
         {
           "stage": 5,
           "band": "Validate",
-          "descriptor": "Target customers have used a version of the product, and their feedback is recorded and acted on.",
+          "test": "People from the target group have tried the concept or prototype, and their feedback has changed something.",
+          "descriptor": "People from the target group have tried the concept or prototype, and their feedback has changed something.",
           "evidence_required": [
-            "user_feedback_record",
-            "usage_data",
-            "interview_log"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "user_feedback_record",
-              "usage_data"
-            ],
-            "weak": [
-              "interview_log"
-            ]
-          }
+            "user_test_record",
+            "change_record"
+          ]
         },
         {
           "stage": 6,
           "band": "Validate",
-          "descriptor": "At least one customer has signed a commitment to pilot or buy, with agreed measures of success.",
+          "test": "A named customer has agreed in writing to a pilot or to buy, and both sides have agreed how success is measured.",
+          "descriptor": "A named customer has agreed in writing to pilot or buy, with success measures agreed by both sides.",
           "evidence_required": [
-            "signed_loi",
-            "pilot_agreement",
-            "email_confirmation"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "signed_loi",
-              "pilot_agreement"
-            ],
-            "weak": [
-              "email_confirmation"
-            ]
-          }
+            "letter_of_intent",
+            "pilot_plan"
+          ]
         },
         {
           "stage": 7,
           "band": "Scale",
-          "descriptor": "Customers have paid for the product, and the team can describe how each sale was won.",
+          "test": "A customer has paid or a committed pilot is running, and the same route to a sale has worked more than once.",
+          "descriptor": "A customer has paid or a committed pilot is running, and the same sales route has worked more than once.",
           "evidence_required": [
-            "invoice",
-            "payment_record",
-            "signed_contract",
-            "pipeline_report"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "invoice",
-              "payment_record",
-              "signed_contract"
-            ],
-            "weak": [
-              "pipeline_report"
-            ]
-          }
+            "invoice_or_payment_record",
+            "pilot_agreement"
+          ]
         },
         {
           "stage": 8,
           "band": "Scale",
-          "descriptor": "Several customers have bought through the same sales steps, and each new customer is onboarded the same way.",
+          "test": "Several customers are paying, upcoming sales can be forecast, and each new customer is onboarded the same way.",
+          "descriptor": "Several customers are paying, upcoming sales can be forecast, and each new customer is onboarded the same way.",
           "evidence_required": [
-            "signed_contract",
-            "invoice",
-            "pipeline_report"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "signed_contract",
-              "invoice"
-            ],
-            "weak": [
-              "pipeline_report"
-            ]
-          }
+            "customer_list",
+            "pipeline_list",
+            "onboarding_checklist"
+          ]
         },
         {
           "stage": 9,
           "band": "Scale",
-          "descriptor": "New customers arrive at a predictable rate, existing customers stay or buy more, and some act as references.",
+          "test": "New customers arrive without the founders selling each deal, existing customers stay and buy more, and customers act as references.",
+          "descriptor": "Customers arrive without founders selling each deal, existing customers stay and buy more, and customers act as references.",
           "evidence_required": [
             "retention_data",
-            "customer_reference",
-            "pipeline_report"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "retention_data",
-              "customer_reference"
-            ],
-            "weak": [
-              "pipeline_report"
-            ]
-          }
+            "reference_customers"
+          ]
         }
       ]
     },
     {
       "code": "PRD",
       "name": "Product",
+      "tracks": "how far the product or technology has gone from an idea to something that runs reliably at commercial volume.",
       "stages": [
         {
           "stage": 1,
           "band": "Explore",
-          "descriptor": "The product exists only as a described idea, with nothing built or specified in detail.",
-          "evidence_required": [
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "concept_note"
-            ],
-            "weak": []
-          }
+          "test": "The product is described but nothing has been built.",
+          "descriptor": "The product is described but nothing has been built.",
+          "evidence_required": []
         },
         {
           "stage": 2,
           "band": "Explore",
-          "descriptor": "The team has specified how the product will work and what a first build must show.",
+          "test": "A written plan says what will be built first and how it will be tested.",
+          "descriptor": "A written plan says what will be built first and how it will be tested.",
           "evidence_required": [
-            "design_document",
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "design_document"
-            ],
-            "weak": [
-              "concept_note"
-            ]
-          }
+            "design_document"
+          ]
         },
         {
           "stage": 3,
           "band": "Explore",
-          "descriptor": "A first build exists and runs, but it fails often and has only been tried by the team.",
+          "test": "A first build exists; it works inconsistently and has had little testing.",
+          "descriptor": "A first build exists; it works inconsistently and has had little testing.",
           "evidence_required": [
-            "prototype_demo",
-            "test_report"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "prototype_demo"
-            ],
-            "weak": [
-              "test_report"
-            ]
-          }
+            "demo_media"
+          ]
         },
         {
           "stage": 4,
           "band": "Validate",
-          "descriptor": "The build performs its main functions in the team's own tests, with results recorded.",
+          "test": "The core functions work in the team's own controlled tests, with measured results.",
+          "descriptor": "The core functions work in the team's own controlled tests, with measured results.",
           "evidence_required": [
-            "test_report",
-            "prototype_demo"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "test_report"
-            ],
-            "weak": [
-              "prototype_demo"
-            ]
-          }
+            "test_report"
+          ]
         },
         {
           "stage": 5,
           "band": "Validate",
-          "descriptor": "The build has been revised after testing, and recorded results show it now fails less often.",
+          "test": "The build has been changed because of test results, and repeat tests show it failing less often.",
+          "descriptor": "The build has been changed because of test results, and repeat tests show it failing less often.",
           "evidence_required": [
-            "test_report",
-            "release_log"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "test_report"
-            ],
-            "weak": [
-              "release_log"
-            ]
-          }
+            "test_report"
+          ]
         },
         {
           "stage": 6,
           "band": "Validate",
-          "descriptor": "The product has worked in conditions close to real use, outside the team's own workplace.",
+          "test": "It has worked in conditions close to real use, outside the team's own bench or lab.",
+          "descriptor": "The product has worked in conditions close to real use, outside the team's own bench or lab.",
           "evidence_required": [
-            "field_trial_report",
-            "third_party_test_report",
-            "prototype_demo"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "field_trial_report",
-              "third_party_test_report"
-            ],
-            "weak": [
-              "prototype_demo"
-            ]
-          }
+            "field_trial_log"
+          ]
         },
         {
           "stage": 7,
           "band": "Scale",
-          "descriptor": "Real users have operated the product in their own setting to do their actual work.",
+          "test": "It has worked in the customer's real setting with real users.",
+          "descriptor": "The product has worked in the customer's real setting with real users.",
           "evidence_required": [
             "deployment_record",
-            "usage_data",
-            "user_feedback_record"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "deployment_record",
-              "usage_data"
-            ],
-            "weak": [
-              "user_feedback_record"
-            ]
-          }
+            "user_logs"
+          ]
         },
         {
           "stage": 8,
           "band": "Scale",
-          "descriptor": "The product runs steadily for several users in different settings, with faults tracked and fixed.",
+          "test": "It performs consistently across several users or sites.",
+          "descriptor": "The product performs consistently across several users or sites.",
           "evidence_required": [
-            "usage_data",
-            "support_log",
-            "release_log"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "usage_data",
-              "support_log"
-            ],
-            "weak": [
-              "release_log"
-            ]
-          }
+            "performance_data"
+          ]
         },
         {
           "stage": 9,
           "band": "Scale",
-          "descriptor": "The product serves many users at once, with staffed support, maintenance routines and measured reliability.",
+          "test": "It runs at commercial volume, with support and maintenance in place.",
+          "descriptor": "The product runs at commercial volume, with support and maintenance in place.",
           "evidence_required": [
-            "uptime_report",
-            "support_log",
-            "usage_data"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "uptime_report",
-              "support_log"
-            ],
-            "weak": [
-              "usage_data"
-            ]
-          }
+            "volume_records",
+            "support_maintenance_records"
+          ]
         }
       ]
     },
     {
       "code": "BIZ",
       "name": "Business Model",
+      "tracks": "how far the venture has gone from not knowing who pays to a model that keeps working as it grows.",
       "stages": [
         {
           "stage": 1,
           "band": "Explore",
-          "descriptor": "The team cannot yet say who would pay, how much, or why.",
-          "evidence_required": [
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "concept_note"
-            ],
-            "weak": []
-          }
+          "test": "The team cannot say who pays or why.",
+          "descriptor": "The team cannot say who pays or why.",
+          "evidence_required": []
         },
         {
           "stage": 2,
           "band": "Explore",
-          "descriptor": "The team has written down who pays, what they pay for, and how money would be collected.",
+          "test": "Who pays, for what, and how the money is collected is written down.",
+          "descriptor": "Who pays, for what, and how the money is collected is written down.",
           "evidence_required": [
-            "business_model_draft",
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "business_model_draft"
-            ],
-            "weak": [
-              "concept_note"
-            ]
-          }
+            "written_model"
+          ]
         },
         {
           "stage": 3,
           "band": "Explore",
-          "descriptor": "The team has listed its costs and a proposed price, but has not checked them against real figures.",
+          "test": "Cost and price figures are written down, but they are the team's own estimates.",
+          "descriptor": "Cost and price figures are written down, but they are the team's own estimates.",
           "evidence_required": [
-            "pricing_document",
-            "cost_breakdown",
-            "business_model_draft"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "pricing_document",
-              "cost_breakdown"
-            ],
-            "weak": [
-              "business_model_draft"
-            ]
-          }
+            "cost_price_sheet"
+          ]
         },
         {
           "stage": 4,
           "band": "Validate",
-          "descriptor": "The proposed price has been put to potential customers and adjusted based on their responses.",
+          "test": "The price and model have been put to customers and adjusted from their response.",
+          "descriptor": "The price and model have been put to customers and adjusted from their response.",
           "evidence_required": [
-            "interview_log",
-            "pricing_document"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "interview_log"
-            ],
-            "weak": [
-              "pricing_document"
-            ]
-          }
+            "price_discussion_record",
+            "revised_model"
+          ]
         },
         {
           "stage": 5,
           "band": "Validate",
-          "descriptor": "The team calculates cost and income per sale from real figures and has chosen its routes to market.",
+          "test": "Cost per unit and margin are calculated from real purchase or delivery figures, and the routes to market are chosen.",
+          "descriptor": "Unit cost and margin are calculated from real purchase or delivery figures, and routes to market are chosen.",
           "evidence_required": [
-            "unit_economics_model",
-            "cost_breakdown"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "unit_economics_model"
-            ],
-            "weak": [
-              "cost_breakdown"
-            ]
-          }
+            "cost_price_sheet",
+            "go_to_market_plan"
+          ]
         },
         {
           "stage": 6,
           "band": "Validate",
-          "descriptor": "Customers have paid the intended price in a pilot or test sale, and delivery steps are written down.",
+          "test": "Customers have paid or committed at the stated price in a pilot or test sale, and a delivery plan is written.",
+          "descriptor": "Customers have paid or committed at the stated price in a pilot or test sale, with a written delivery plan.",
           "evidence_required": [
-            "invoice",
-            "payment_record",
-            "pricing_document"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "invoice",
-              "payment_record"
-            ],
-            "weak": [
-              "pricing_document"
-            ]
-          }
+            "invoice_or_payment_record",
+            "letter_of_intent",
+            "delivery_plan"
+          ]
         },
         {
           "stage": 7,
           "band": "Scale",
-          "descriptor": "Sales come repeatedly through at least one channel, at a price that covers the cost of delivery.",
+          "test": "The same route to market has produced sales repeatedly, and at least one channel or partner is delivering.",
+          "descriptor": "The same route to market has produced sales repeatedly, and at least one channel or partner is delivering.",
           "evidence_required": [
-            "channel_data",
-            "management_accounts",
-            "unit_economics_model"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "channel_data",
-              "management_accounts"
-            ],
-            "weak": [
-              "unit_economics_model"
-            ]
-          }
+            "sales_records_by_channel",
+            "partner_agreement"
+          ]
         },
         {
           "stage": 8,
           "band": "Scale",
-          "descriptor": "Margins hold steady as volume grows, and the team has a written plan for expanding delivery.",
+          "test": "Margin and delivery stay steady as volume rises, and a written plan for growth exists.",
+          "descriptor": "Margin and delivery stay steady as volume rises, and a written plan for growth exists.",
           "evidence_required": [
-            "management_accounts",
-            "unit_economics_model"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "management_accounts"
-            ],
-            "weak": [
-              "unit_economics_model"
-            ]
-          }
+            "margin_trend",
+            "delivery_records",
+            "growth_plan"
+          ]
         },
         {
           "stage": 9,
           "band": "Scale",
-          "descriptor": "The business grows through established channels with stable margins, and reports the same growth measures every period.",
+          "test": "The model sustains growth and its key figures are reviewed on a fixed schedule.",
+          "descriptor": "The model sustains growth and its key figures are reviewed on a fixed schedule.",
           "evidence_required": [
-            "audited_accounts",
-            "management_accounts",
-            "channel_data"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "audited_accounts",
-              "management_accounts"
-            ],
-            "weak": [
-              "channel_data"
-            ]
-          }
+            "metrics_reviews"
+          ]
         }
       ]
     },
     {
       "code": "MOT",
       "name": "Moat",
+      "tracks": "what the venture has that others cannot easily copy, and how well it is owned and protected. Covers patents, designs, trademarks, trade secrets, proprietary data, know-how, licences and regulatory approvals, and exclusive agreements.",
       "stages": [
         {
           "stage": 1,
           "band": "Explore",
-          "descriptor": "The team has not considered what would stop others copying the product or who owns the work.",
-          "evidence_required": [
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "concept_note"
-            ],
-            "weak": []
-          }
+          "test": "The team cannot say what is hard to copy, or who owns what has been created.",
+          "descriptor": "The team cannot say what is hard to copy, or who owns what has been created.",
+          "evidence_required": []
         },
         {
           "stage": 2,
           "band": "Explore",
-          "descriptor": "The team has started checking what similar solutions exist and what others have already protected.",
+          "test": "The team has started checking what already exists: similar products, published work, existing rights.",
+          "descriptor": "The team has started checking what already exists: similar products, published work, existing rights.",
           "evidence_required": [
-            "landscape_review",
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "landscape_review"
-            ],
-            "weak": [
-              "concept_note"
-            ]
-          }
+            "search_notes"
+          ]
         },
         {
           "stage": 3,
           "band": "Explore",
-          "descriptor": "The team has written down what is distinctive about its product and settled in writing who owns it.",
+          "test": "What is unique is written down, and ownership is settled between founders, institution and other contributors.",
+          "descriptor": "What is unique is written down, and ownership is settled between founders, institution and other contributors.",
           "evidence_required": [
-            "ownership_agreement",
-            "landscape_review"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "ownership_agreement"
-            ],
-            "weak": [
-              "landscape_review"
-            ]
-          }
+            "uniqueness_note",
+            "ownership_agreement"
+          ]
         },
         {
           "stage": 4,
           "band": "Validate",
-          "descriptor": "The team has chosen how it will stay hard to copy, such as patents, secrecy, data, brand or exclusive agreements.",
+          "test": "For each asset, a route of protection has been chosen (register it, keep it secret, lock it in by contract) with reasons.",
+          "descriptor": "For each asset, a protection route has been chosen (register, keep secret, or contract) with reasons.",
           "evidence_required": [
-            "protection_plan",
-            "landscape_review"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "protection_plan"
-            ],
-            "weak": [
-              "landscape_review"
-            ]
-          }
+            "protection_plan"
+          ]
         },
         {
           "stage": 5,
           "band": "Validate",
-          "descriptor": "The team is preparing its chosen protection, with drafts, records or contracts in progress.",
+          "test": "Protection is being prepared with professional help, and records are kept in a standard way.",
+          "descriptor": "Protection is being prepared with professional help, and records are kept in a standard way.",
           "evidence_required": [
-            "legal_opinion",
-            "protection_plan"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "legal_opinion"
-            ],
-            "weak": [
-              "protection_plan"
-            ]
-          }
+            "draft_applications",
+            "attorney_engagement",
+            "record_keeping"
+          ]
         },
         {
           "stage": 6,
           "band": "Validate",
-          "descriptor": "A first protection is in place, such as a filed application, and conflicts with others' rights have been checked.",
+          "test": "First formal protection is in place, and the risk of infringing others' rights has been reviewed.",
+          "descriptor": "First formal protection is in place, and the risk of infringing others' rights has been reviewed.",
           "evidence_required": [
             "filing_receipt",
-            "license_agreement",
-            "legal_opinion"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "filing_receipt",
-              "license_agreement"
-            ],
-            "weak": [
-              "legal_opinion"
-            ]
-          }
+            "infringement_review_note",
+            "confidentiality_agreements"
+          ]
         },
         {
           "stage": 7,
           "band": "Scale",
-          "descriptor": "Protection covers the main markets the business sells in, and each element is tied to a source of revenue.",
+          "test": "Protection has been extended to the markets and assets that matter commercially, and is tied to the business plan.",
+          "descriptor": "Protection has been extended to the markets and assets that matter commercially, and is tied to the business plan.",
           "evidence_required": [
             "filing_receipt",
-            "grant_certificate",
-            "protection_plan"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "filing_receipt",
-              "grant_certificate"
-            ],
-            "weak": [
-              "protection_plan"
-            ]
-          }
+            "protection_revenue_plan"
+          ]
         },
         {
           "stage": 8,
           "band": "Scale",
-          "descriptor": "Granted rights or exclusive agreements are in force, and partners have opened talks to license or rely on them.",
+          "test": "The position has held up, and licensing or partnership options built on it have been explored.",
+          "descriptor": "The position has held up, and licensing or partnership options built on it have been explored.",
           "evidence_required": [
-            "grant_certificate",
-            "license_agreement",
-            "landscape_review"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "grant_certificate",
-              "license_agreement"
-            ],
-            "weak": [
-              "landscape_review"
-            ]
-          }
+            "issued_grants_or_registrations",
+            "licensing_discussions"
+          ]
         },
         {
           "stage": 9,
           "band": "Scale",
-          "descriptor": "The business monitors and enforces its position, and that position measurably earns or protects revenue.",
+          "test": "The position is maintained and monitored, and it visibly earns business value.",
+          "descriptor": "The position is maintained and monitored, and it visibly earns business value.",
           "evidence_required": [
-            "license_agreement",
-            "management_accounts",
-            "legal_opinion"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "license_agreement",
-              "management_accounts"
-            ],
-            "weak": [
-              "legal_opinion"
-            ]
-          }
+            "renewal_monitoring_records",
+            "moat_value_record"
+          ]
         }
       ]
     },
     {
       "code": "TEA",
       "name": "Team",
+      "tracks": "how far the venture has gone from one person to an organisation that runs without depending on its founders for every task.",
       "stages": [
         {
           "stage": 1,
           "band": "Explore",
-          "descriptor": "One person is doing the work alone, and key skills the venture needs are absent.",
-          "evidence_required": [
-            "team_roster"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "team_roster"
-            ],
-            "weak": []
-          }
+          "test": "One founder, with key skills missing.",
+          "descriptor": "There is one founder, with key skills missing.",
+          "evidence_required": []
         },
         {
           "stage": 2,
           "band": "Explore",
-          "descriptor": "The founder is in talks with possible co-founders or early members, with no roles agreed.",
+          "test": "Talks are under way with possible co-founders or first team members; roles are not agreed.",
+          "descriptor": "Talks are under way with possible co-founders or first team members; roles are not agreed.",
           "evidence_required": [
-            "meeting_record",
-            "team_roster"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "meeting_record"
-            ],
-            "weak": [
-              "team_roster"
-            ]
-          }
+            "team_correspondence"
+          ]
         },
         {
           "stage": 3,
           "band": "Explore",
-          "descriptor": "A core group is working on the venture, though responsibilities overlap and time commitments differ.",
+          "test": "A core team is in place; roles are partly agreed and time commitment is uneven.",
+          "descriptor": "A core team is in place; roles are partly agreed and time commitment is uneven.",
           "evidence_required": [
-            "team_roster",
-            "meeting_record"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "team_roster"
-            ],
-            "weak": [
-              "meeting_record"
-            ]
-          }
+            "role_map"
+          ]
         },
         {
           "stage": 4,
           "band": "Validate",
-          "descriptor": "Each core member has a named responsibility, and the team meets on a fixed schedule to review progress.",
+          "test": "Every role is written and owned, the team works to a regular rhythm, and the gaps that need advisers are named.",
+          "descriptor": "Every role is written and owned, the team works to a regular rhythm, and gaps needing advisers are named.",
           "evidence_required": [
-            "meeting_record",
-            "team_roster"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "meeting_record"
-            ],
-            "weak": [
-              "team_roster"
-            ]
-          }
+            "role_map",
+            "weekly_tracker",
+            "gap_list"
+          ]
         },
         {
           "stage": 5,
           "band": "Validate",
-          "descriptor": "Ownership shares are agreed in writing, outside advisers contribute regularly, and planned hires are listed.",
+          "test": "Independent advisers are active, and there is a written hiring plan for the most pressing gap.",
+          "descriptor": "Independent advisers are active, and there is a written hiring plan for the most pressing gap.",
           "evidence_required": [
-            "founder_agreement",
-            "cap_table",
-            "advisor_agreement",
+            "adviser_list",
             "hiring_plan"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "founder_agreement",
-              "cap_table"
-            ],
-            "weak": [
-              "advisor_agreement",
-              "hiring_plan"
-            ]
-          }
+          ]
         },
         {
           "stage": 6,
           "band": "Validate",
-          "descriptor": "The team delivers against its plans most periods, and decisions follow written rules on who decides what.",
+          "test": "The team has kept to its rhythm over time, and decision rights and founder agreements are in place.",
+          "descriptor": "The team has kept to its rhythm over time, and decision rights and founder agreements are in place.",
           "evidence_required": [
-            "board_minutes",
-            "meeting_record"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "board_minutes"
-            ],
-            "weak": [
-              "meeting_record"
-            ]
-          }
+            "weekly_tracker",
+            "founder_agreement",
+            "decision_records"
+          ]
         },
         {
           "stage": 7,
           "band": "Scale",
-          "descriptor": "Every key function has a capable owner, and the team reliably meets the dates it sets.",
+          "test": "All critical functions are covered by capable people, delivery is predictable, and there is structure beyond the founders.",
+          "descriptor": "All critical functions are covered by capable people, delivery is predictable, and structure exists beyond the founders.",
           "evidence_required": [
-            "org_chart",
-            "employment_contract",
-            "meeting_record"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "org_chart",
-              "employment_contract"
-            ],
-            "weak": [
-              "meeting_record"
-            ]
-          }
+            "role_map",
+            "delivery_record_against_plan"
+          ]
         },
         {
           "stage": 8,
           "band": "Scale",
-          "descriptor": "New members are hired and onboarded through a set process, and individual performance is reviewed regularly.",
+          "test": "Hiring, onboarding and performance review run as systems, without founders handling each case.",
+          "descriptor": "Hiring, onboarding and performance review run as systems, without founders handling each case.",
           "evidence_required": [
-            "performance_review_record",
-            "employment_contract",
-            "hiring_plan"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "performance_review_record",
-              "employment_contract"
-            ],
-            "weak": [
-              "hiring_plan"
-            ]
-          }
+            "people_processes"
+          ]
         },
         {
           "stage": 9,
           "band": "Scale",
-          "descriptor": "Leaders below the founders run their areas independently, and governance works without the founders in every decision.",
+          "test": "A leadership team runs the company, and governance and culture hold as headcount grows.",
+          "descriptor": "A leadership team runs the company, and governance and culture hold as headcount grows.",
           "evidence_required": [
-            "board_minutes",
-            "org_chart"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "board_minutes"
-            ],
-            "weak": [
-              "org_chart"
-            ]
-          }
+            "governance_records",
+            "leadership_structure"
+          ]
         }
       ]
     },
     {
       "code": "CAP",
       "name": "Capital",
+      "tracks": "how far the venture has gone from no view of its money to being able to choose between sources of capital.",
       "stages": [
         {
           "stage": 1,
           "band": "Explore",
-          "descriptor": "The team does not know how much money it has, how much it needs, or how long it will last.",
-          "evidence_required": [
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "concept_note"
-            ],
-            "weak": []
-          }
+          "test": "No view of how much money is needed or how long cash will last.",
+          "descriptor": "The team has no view of how much money is needed or how long cash will last.",
+          "evidence_required": []
         },
         {
           "stage": 2,
           "band": "Explore",
-          "descriptor": "The team has estimated how much money it needs and drawn up a rough budget.",
+          "test": "The team knows roughly what it needs and has a rough budget.",
+          "descriptor": "The team knows roughly what it needs and has a rough budget.",
           "evidence_required": [
-            "budget",
-            "concept_note"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "budget"
-            ],
-            "weak": [
-              "concept_note"
-            ]
-          }
+            "budget_runway_sheet"
+          ]
         },
         {
           "stage": 3,
           "band": "Explore",
-          "descriptor": "The team has a first pitch and a list of milestones, without a clear plan for who to approach.",
+          "test": "A complete pitch and milestones exist, but the route to money is not decided.",
+          "descriptor": "A complete pitch and milestones exist, but the route to money is not decided.",
           "evidence_required": [
             "pitch_deck",
-            "budget"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "pitch_deck"
-            ],
-            "weak": [
-              "budget"
-            ]
-          }
+            "milestone_list"
+          ]
         },
         {
           "stage": 4,
           "band": "Validate",
-          "descriptor": "The team has a pitch backed by supporting figures and a list of funders it plans to approach.",
+          "test": "The pitch is backed by supporting data, and there is a plan naming whom to approach.",
+          "descriptor": "The pitch is backed by supporting data, and there is a plan naming whom to approach.",
           "evidence_required": [
             "pitch_deck",
-            "cash_flow_forecast",
-            "investor_log"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "pitch_deck",
-              "cash_flow_forecast"
-            ],
-            "weak": [
-              "investor_log"
-            ]
-          }
+            "data_pack",
+            "outreach_plan"
+          ]
         },
         {
           "stage": 5,
           "band": "Validate",
-          "descriptor": "Conversations with funders have begun, and each milestone is linked to the amount of money it requires.",
+          "test": "Conversations with funders are live, and each milestone is tied to an amount.",
+          "descriptor": "Conversations with funders are live, and each milestone is tied to an amount.",
           "evidence_required": [
             "funder_correspondence",
-            "investor_log",
-            "cash_flow_forecast"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "funder_correspondence"
-            ],
-            "weak": [
-              "investor_log",
-              "cash_flow_forecast"
-            ]
-          }
+            "milestone_capital_map"
+          ]
         },
         {
           "stage": 6,
           "band": "Validate",
-          "descriptor": "The team has a complete data room and a stated use of funds, and could respond to an offer.",
+          "test": "The venture could take money now: use of funds is clear and the documents a funder would ask for are ready.",
+          "descriptor": "The venture could take money now: use of funds is clear and funder documents are ready.",
           "evidence_required": [
-            "data_room_index",
-            "cash_flow_forecast",
-            "pitch_deck"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "data_room_index",
-              "cash_flow_forecast"
-            ],
-            "weak": [
-              "pitch_deck"
-            ]
-          }
+            "use_of_funds_statement",
+            "funder_document_set"
+          ]
         },
         {
           "stage": 7,
           "band": "Scale",
-          "descriptor": "Funders have made written commitments, and the team tracks how many months of cash remain.",
+          "test": "Written commitments are in progress, and the runway is planned against them.",
+          "descriptor": "Written commitments are in progress, and the runway is planned against them.",
           "evidence_required": [
-            "term_sheet",
-            "bank_statement_extract",
-            "investor_log"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "term_sheet",
-              "bank_statement_extract"
-            ],
-            "weak": [
-              "investor_log"
-            ]
-          }
+            "commitment_letter",
+            "runway_plan"
+          ]
         },
         {
           "stage": 8,
           "band": "Scale",
-          "descriptor": "Money is in the bank from investment or steady sales, and spending is approved and reported under set controls.",
+          "test": "Money is in the bank or revenue reliably covers costs, with financial controls working.",
+          "descriptor": "Money is in the bank or revenue reliably covers costs, with financial controls working.",
           "evidence_required": [
-            "bank_statement_extract",
-            "funding_agreement",
-            "management_accounts",
-            "cash_flow_forecast"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "bank_statement_extract",
-              "funding_agreement",
-              "management_accounts"
-            ],
-            "weak": [
-              "cash_flow_forecast"
-            ]
-          }
+            "bank_or_grant_record",
+            "management_accounts"
+          ]
         },
         {
           "stage": 9,
           "band": "Scale",
-          "descriptor": "The business can choose between several sources of money, and its forecasts are reviewed against actual results.",
+          "test": "The venture can choose between several sources of capital, with reliable forecasting and governance.",
+          "descriptor": "The venture can choose between several sources of capital, with reliable forecasting and governance.",
           "evidence_required": [
-            "audited_accounts",
-            "term_sheet",
-            "cash_flow_forecast"
-          ],
-          "evidence_strength": {
-            "strong": [
-              "audited_accounts",
-              "term_sheet"
-            ],
-            "weak": [
-              "cash_flow_forecast"
-            ]
-          }
+            "capital_offers",
+            "forecast_vs_actuals"
+          ]
         }
       ]
     }
