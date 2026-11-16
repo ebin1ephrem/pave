@@ -1,0 +1,10 @@
+SRL
+Startup Readiness Level
+CRL
+TRL
+BRL
+IPRL
+TMRL
+FRL
+KTH
+readiness level
