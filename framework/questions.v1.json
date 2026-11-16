@@ -1,0 +1,1492 @@
+{
+  "framework": "VPAF",
+  "version": "1",
+  "questions": [
+    {
+      "id": "cus.segment_clarity",
+      "dimension": "CUS",
+      "text": "How clearly defined is your target customer today?",
+      "why": "Knowing exactly who has the problem comes before everything else.",
+      "evidence_types": [
+        "segment_problem_statement",
+        "conversation_notes"
+      ],
+      "options": [
+        {
+          "id": "own_belief",
+          "label": "It is our own belief so far; we have not asked anyone outside the team",
+          "stage": 1
+        },
+        {
+          "id": "mixed_answers",
+          "label": "We have spoken to some people, but their answers do not yet point one way",
+          "stage": 2
+        },
+        {
+          "id": "one_group_named",
+          "label": "We can name one specific customer group and state its problem in a sentence",
+          "stage": 3
+        },
+        {
+          "id": "confirmed_by_interviews",
+          "label": "Interviews with that group keep confirming the same problem",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "cus.conversations",
+      "dimension": "CUS",
+      "text": "How many in-depth conversations about the problem have you had with potential customers in the last 90 days?",
+      "why": "Recent, real conversations are the base of every customer claim. Pitches, friends, family and your host institution do not count.",
+      "evidence_types": [
+        "conversation_notes",
+        "interview_log"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "None yet",
+          "stage": null
+        },
+        {
+          "id": "a_few",
+          "label": "A few (1 to 4)",
+          "stage": 2
+        },
+        {
+          "id": "several",
+          "label": "Several (5 to 14)",
+          "stage": 3
+        },
+        {
+          "id": "many",
+          "label": "Many (15 or more)",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "cus.pattern",
+      "dimension": "CUS",
+      "text": "Do your interviews show the same problem again and again?",
+      "why": "A problem heard once is an anecdote; heard repeatedly from one group, it is a finding.",
+      "evidence_types": [
+        "interview_log"
+      ],
+      "options": [
+        {
+          "id": "no_interviews",
+          "label": "We have not interviewed yet",
+          "stage": null
+        },
+        {
+          "id": "answers_vary",
+          "label": "Answers vary from person to person",
+          "stage": 2
+        },
+        {
+          "id": "pattern_emerging",
+          "label": "A pattern is emerging but is not written up",
+          "stage": 3
+        },
+        {
+          "id": "pattern_logged",
+          "label": "The same problem recurs and is written up in an interview log",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "cus.written_offer",
+      "dimension": "CUS",
+      "text": "Have you put a written offer in front of your target customers?",
+      "why": "Writing the offer down forces a clear statement of what the customer gets.",
+      "evidence_types": [
+        "written_offer"
+      ],
+      "options": [
+        {
+          "id": "no_offer",
+          "label": "Not yet",
+          "stage": null
+        },
+        {
+          "id": "verbal_only",
+          "label": "We describe it verbally only",
+          "stage": 3
+        },
+        {
+          "id": "written_and_shared",
+          "label": "A written offer exists and has been shared with them",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "cus.user_testing",
+      "dimension": "CUS",
+      "text": "Have people from your target group tried your concept or prototype?",
+      "why": "Showing a deck is not testing. Testing means a target user tried it and told you what happened.",
+      "evidence_types": [
+        "user_test_record",
+        "change_record"
+      ],
+      "options": [
+        {
+          "id": "team_only",
+          "label": "Not outside the team, friends or family",
+          "stage": null
+        },
+        {
+          "id": "verbal_reactions",
+          "label": "Shown to target users; verbal reactions only",
+          "stage": 3
+        },
+        {
+          "id": "feedback_recorded",
+          "label": "Tried by target users, with feedback recorded in writing",
+          "stage": 4
+        },
+        {
+          "id": "feedback_changed_something",
+          "label": "Tried by target users, and their feedback led to a change we can point to",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "cus.signed_commitment",
+      "dimension": "CUS",
+      "text": "Has a named customer agreed in writing to a pilot or to buy?",
+      "why": "A signature costs the customer something; verbal interest does not.",
+      "evidence_types": [
+        "letter_of_intent",
+        "pilot_agreement"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "No",
+          "stage": null
+        },
+        {
+          "id": "verbal_interest",
+          "label": "Verbal interest only",
+          "stage": 3
+        },
+        {
+          "id": "unsigned_draft",
+          "label": "A draft or an email of interest, not yet signed",
+          "stage": 5
+        },
+        {
+          "id": "signed",
+          "label": "Signed and dated by a named customer",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "cus.success_measures",
+      "dimension": "CUS",
+      "text": "Have you and that customer agreed how success will be measured?",
+      "why": "A pilot without agreed measures cannot be shown to have worked.",
+      "evidence_types": [
+        "pilot_plan",
+        "letter_of_intent"
+      ],
+      "options": [
+        {
+          "id": "no_agreement",
+          "label": "We have no signed agreement yet",
+          "stage": null
+        },
+        {
+          "id": "not_agreed",
+          "label": "Agreement signed, but success measures are not agreed",
+          "stage": 5
+        },
+        {
+          "id": "agreed_in_writing",
+          "label": "Success measures are agreed with the customer in writing",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "cus.paying_customers",
+      "dimension": "CUS",
+      "text": "Do customers pay you today?",
+      "why": "Money moving is the firmest customer proof. Free pilots are not paying customers.",
+      "evidence_types": [
+        "invoice_or_payment_record",
+        "pilot_agreement",
+        "customer_list"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "No paying customers and no committed pilot running",
+          "stage": null
+        },
+        {
+          "id": "first_one",
+          "label": "One customer has paid, or one committed pilot is running",
+          "stage": 6
+        },
+        {
+          "id": "a_few_same_route",
+          "label": "A few (1 to 4) have paid, won through the same route more than once",
+          "stage": 7
+        },
+        {
+          "id": "several_or_more",
+          "label": "Several or many (5 or more) are paying",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "cus.pipeline",
+      "dimension": "CUS",
+      "text": "Can you forecast your upcoming sales?",
+      "why": "A pipeline shows whether wins so far are one-offs or part of a system.",
+      "evidence_types": [
+        "pipeline_list",
+        "onboarding_checklist"
+      ],
+      "options": [
+        {
+          "id": "no_pipeline",
+          "label": "No pipeline yet",
+          "stage": null
+        },
+        {
+          "id": "named_prospects",
+          "label": "Named prospects, each with a status and next step",
+          "stage": 7
+        },
+        {
+          "id": "forecast_and_onboarding",
+          "label": "The pipeline lets us forecast sales, and each new customer is onboarded with the same checklist",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "cus.retention",
+      "dimension": "CUS",
+      "text": "Do existing customers stay, buy more, and refer others?",
+      "why": "Keeping customers matters as much as winning them.",
+      "evidence_types": [
+        "retention_data",
+        "reference_customers"
+      ],
+      "options": [
+        {
+          "id": "too_early",
+          "label": "Too early to tell",
+          "stage": null
+        },
+        {
+          "id": "some_repeat",
+          "label": "Some repeat purchases, not tracked",
+          "stage": 8
+        },
+        {
+          "id": "tracked_and_referenced",
+          "label": "Retention is tracked, customers act as references, and new customers arrive without founders selling each deal",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "prd.what_exists",
+      "dimension": "PRD",
+      "text": "What exists today?",
+      "why": "Be exact about the line between described, designed and built.",
+      "evidence_types": [
+        "design_document",
+        "demo_media",
+        "test_report",
+        "field_trial_log",
+        "deployment_record"
+      ],
+      "options": [
+        {
+          "id": "described_only",
+          "label": "A described idea; nothing built",
+          "stage": 1
+        },
+        {
+          "id": "written_plan",
+          "label": "A written plan or design for the first build",
+          "stage": 2
+        },
+        {
+          "id": "first_build",
+          "label": "A first build that works inconsistently",
+          "stage": 3
+        },
+        {
+          "id": "works_in_own_tests",
+          "label": "Core functions work in our own controlled tests",
+          "stage": 4
+        },
+        {
+          "id": "works_near_real_use",
+          "label": "It has worked in conditions close to real use, outside our own bench or lab",
+          "stage": 6
+        },
+        {
+          "id": "works_at_customer",
+          "label": "It has worked in the customer's real setting with real users",
+          "stage": 7
+        },
+        {
+          "id": "commercial_volume",
+          "label": "It runs at commercial volume with support and maintenance",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "prd.build_plan",
+      "dimension": "PRD",
+      "text": "Is there a written plan for what will be built first and how it will be tested?",
+      "why": "A plan specific enough to build from separates a design from a sketch.",
+      "evidence_types": [
+        "design_document"
+      ],
+      "options": [
+        {
+          "id": "no_plan",
+          "label": "No",
+          "stage": null
+        },
+        {
+          "id": "concept_sketch",
+          "label": "A concept sketch only",
+          "stage": 1
+        },
+        {
+          "id": "buildable_plan",
+          "label": "A document specific enough to build from, with a test approach",
+          "stage": 2
+        }
+      ]
+    },
+    {
+      "id": "prd.testing_done",
+      "dimension": "PRD",
+      "text": "What testing has the build had?",
+      "why": "Founders who can describe failures know their product.",
+      "evidence_types": [
+        "test_report"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "None yet",
+          "stage": null
+        },
+        {
+          "id": "informal",
+          "label": "Tried informally by the team; nothing recorded",
+          "stage": 3
+        },
+        {
+          "id": "measured",
+          "label": "Tested in controlled conditions with measured results recorded",
+          "stage": 4
+        },
+        {
+          "id": "retested",
+          "label": "Re-tested across versions, with records showing fewer failures",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "prd.key_measure",
+      "dimension": "PRD",
+      "text": "Have you measured the performance figure that matters most for your product?",
+      "why": "Every product has one or two figures that decide whether it is ready. You name it; the test report must report it.",
+      "evidence_types": [
+        "test_report",
+        "field_trial_log"
+      ],
+      "options": [
+        {
+          "id": "not_identified",
+          "label": "We have not identified it yet",
+          "stage": null
+        },
+        {
+          "id": "identified_not_measured",
+          "label": "Identified, but not yet measured",
+          "stage": 3
+        },
+        {
+          "id": "measured_own_tests",
+          "label": "Measured against a target in our own tests",
+          "stage": 4
+        },
+        {
+          "id": "measured_in_field",
+          "label": "Measured in field or customer conditions",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "prd.iteration",
+      "dimension": "PRD",
+      "text": "Has the build been changed because of test results?",
+      "why": "Changing the build in response to results shows the testing is real.",
+      "evidence_types": [
+        "test_report",
+        "change_record"
+      ],
+      "options": [
+        {
+          "id": "no_changes",
+          "label": "No",
+          "stage": null
+        },
+        {
+          "id": "changed_not_retested",
+          "label": "Changes made, but not yet re-tested",
+          "stage": 4
+        },
+        {
+          "id": "changed_and_retested",
+          "label": "Changes made, and repeat tests show it failing less often",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "prd.environment",
+      "dimension": "PRD",
+      "text": "Where has it been shown to work?",
+      "why": "Each step away from your own bench is stronger proof.",
+      "evidence_types": [
+        "field_trial_log",
+        "deployment_record",
+        "performance_data"
+      ],
+      "options": [
+        {
+          "id": "desk_only",
+          "label": "Only at the team's own desk or workshop",
+          "stage": 3
+        },
+        {
+          "id": "own_lab",
+          "label": "In our own lab or controlled setup",
+          "stage": 4
+        },
+        {
+          "id": "external_site",
+          "label": "At a partner's or other external site, close to real use",
+          "stage": 6
+        },
+        {
+          "id": "customer_setting",
+          "label": "In the customer's real setting with real users",
+          "stage": 7
+        },
+        {
+          "id": "several_sites",
+          "label": "Across several users or sites",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "prd.consistency",
+      "dimension": "PRD",
+      "text": "How consistent is performance across users or sites?",
+      "why": "One good result at one site does not show it will hold elsewhere.",
+      "evidence_types": [
+        "performance_data",
+        "user_logs"
+      ],
+      "options": [
+        {
+          "id": "not_in_use",
+          "label": "Not in real use yet",
+          "stage": null
+        },
+        {
+          "id": "one_user_or_site",
+          "label": "In real use with one user or at one site",
+          "stage": 7
+        },
+        {
+          "id": "consistent_across_several",
+          "label": "Consistent across several users or sites, with data",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "prd.support",
+      "dimension": "PRD",
+      "text": "Are volume, support and maintenance in place?",
+      "why": "At scale, the product is only as good as the support behind it.",
+      "evidence_types": [
+        "volume_records",
+        "support_maintenance_records"
+      ],
+      "options": [
+        {
+          "id": "not_yet",
+          "label": "Not applicable yet",
+          "stage": null
+        },
+        {
+          "id": "ad_hoc",
+          "label": "Founders handle support case by case",
+          "stage": 8
+        },
+        {
+          "id": "in_place",
+          "label": "It runs at commercial volume, with support and maintenance records",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "biz.who_pays",
+      "dimension": "BIZ",
+      "text": "Is it written down who pays, for what, and how the money is collected?",
+      "why": "User, payer and decision-maker are often different people.",
+      "evidence_types": [
+        "written_model"
+      ],
+      "options": [
+        {
+          "id": "cannot_say",
+          "label": "We cannot say yet",
+          "stage": 1
+        },
+        {
+          "id": "not_written",
+          "label": "We can say it, but it is not written down",
+          "stage": 1
+        },
+        {
+          "id": "written",
+          "label": "It is written down",
+          "stage": 2
+        }
+      ]
+    },
+    {
+      "id": "biz.cost_and_price",
+      "dimension": "BIZ",
+      "text": "What cost and price figures do you have?",
+      "why": "Estimates are a start; real figures are proof.",
+      "evidence_types": [
+        "cost_price_sheet"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "None yet",
+          "stage": null
+        },
+        {
+          "id": "own_estimates",
+          "label": "Written down, based on our own estimates",
+          "stage": 3
+        },
+        {
+          "id": "real_figures",
+          "label": "Calculated from real purchase or delivery figures",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "biz.price_tested",
+      "dimension": "BIZ",
+      "text": "Has your price been put to customers?",
+      "why": "However detailed the cost model, a price never put to a customer is untested.",
+      "evidence_types": [
+        "price_discussion_record",
+        "revised_model",
+        "invoice_or_payment_record"
+      ],
+      "options": [
+        {
+          "id": "not_shared",
+          "label": "Not shared with any customer yet",
+          "stage": null
+        },
+        {
+          "id": "shared_no_change",
+          "label": "Shared in conversations; nothing changed as a result",
+          "stage": 3
+        },
+        {
+          "id": "adjusted",
+          "label": "Put to customers, and the price or model was adjusted from their response",
+          "stage": 4
+        },
+        {
+          "id": "paid_or_committed",
+          "label": "Customers have paid or committed at the stated price",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "biz.unit_margin",
+      "dimension": "BIZ",
+      "text": "Do you know your cost per unit and your margin?",
+      "why": "A business that loses money on each sale loses more as it grows.",
+      "evidence_types": [
+        "cost_price_sheet",
+        "margin_trend"
+      ],
+      "options": [
+        {
+          "id": "not_worked_out",
+          "label": "Not worked out",
+          "stage": null
+        },
+        {
+          "id": "rough",
+          "label": "Rough estimates only",
+          "stage": 3
+        },
+        {
+          "id": "from_real_figures",
+          "label": "Calculated from real purchase or delivery figures",
+          "stage": 5
+        },
+        {
+          "id": "steady_at_volume",
+          "label": "Tracked over time, and steady as volume rises",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "biz.routes_to_market",
+      "dimension": "BIZ",
+      "text": "Have you chosen your routes to market?",
+      "why": "A long list of possible channels is not a plan.",
+      "evidence_types": [
+        "go_to_market_plan",
+        "sales_records_by_channel",
+        "partner_agreement"
+      ],
+      "options": [
+        {
+          "id": "not_chosen",
+          "label": "Not yet",
+          "stage": null
+        },
+        {
+          "id": "general_list",
+          "label": "A general list of possible channels",
+          "stage": 4
+        },
+        {
+          "id": "named_plan",
+          "label": "Named channels, with steps and owners",
+          "stage": 5
+        },
+        {
+          "id": "channel_delivering",
+          "label": "At least one channel or partner is producing sales repeatedly",
+          "stage": 7
+        }
+      ]
+    },
+    {
+      "id": "biz.test_sales",
+      "dimension": "BIZ",
+      "text": "Have customers paid or committed at your stated price in a pilot or test sale?",
+      "why": "Willingness to pay is shown by payment or signature, not by interest.",
+      "evidence_types": [
+        "invoice_or_payment_record",
+        "letter_of_intent"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "Not yet",
+          "stage": null
+        },
+        {
+          "id": "a_few",
+          "label": "A few (1 to 4) have paid or committed at that price",
+          "stage": 6
+        },
+        {
+          "id": "repeatedly",
+          "label": "Sales come repeatedly through the same route",
+          "stage": 7
+        }
+      ]
+    },
+    {
+      "id": "biz.delivery_plan",
+      "dimension": "BIZ",
+      "text": "Is there a written plan for delivering to customers?",
+      "why": "Selling is half the model; delivering at the promised cost is the other half.",
+      "evidence_types": [
+        "delivery_plan",
+        "delivery_records"
+      ],
+      "options": [
+        {
+          "id": "no_plan",
+          "label": "No",
+          "stage": null
+        },
+        {
+          "id": "written_plan",
+          "label": "A written delivery plan exists",
+          "stage": 6
+        },
+        {
+          "id": "steady_delivery",
+          "label": "Delivery stays steady as volume rises, with records",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "biz.growth_review",
+      "dimension": "BIZ",
+      "text": "Is there a written plan for growth, and are key figures reviewed?",
+      "why": "A model that keeps working is one that is watched.",
+      "evidence_types": [
+        "growth_plan",
+        "metrics_reviews"
+      ],
+      "options": [
+        {
+          "id": "neither",
+          "label": "Neither yet",
+          "stage": null
+        },
+        {
+          "id": "growth_plan",
+          "label": "A written plan for growth exists",
+          "stage": 8
+        },
+        {
+          "id": "fixed_schedule",
+          "label": "Key figures are reviewed on a fixed schedule, and have been for some time",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "mot.hard_to_copy",
+      "dimension": "MOT",
+      "text": "Can you say what about your venture is hard to copy?",
+      "why": "This is wider than patents: secrets, data, know-how, brand, approvals and exclusive agreements all count.",
+      "evidence_types": [
+        "uniqueness_note"
+      ],
+      "options": [
+        {
+          "id": "cannot_say",
+          "label": "We cannot say yet",
+          "stage": 1
+        },
+        {
+          "id": "not_written",
+          "label": "We have a view, but it is not written down",
+          "stage": 1
+        },
+        {
+          "id": "written",
+          "label": "Written down: what is new and who created it",
+          "stage": 3
+        }
+      ]
+    },
+    {
+      "id": "mot.existing_check",
+      "dimension": "MOT",
+      "text": "Have you checked what already exists: similar products, published work, existing rights?",
+      "why": "Finding a conflict late is far more costly than finding it now.",
+      "evidence_types": [
+        "search_notes",
+        "infringement_review_note"
+      ],
+      "options": [
+        {
+          "id": "not_checked",
+          "label": "Not yet",
+          "stage": null
+        },
+        {
+          "id": "started",
+          "label": "Started; our own searches, with notes",
+          "stage": 2
+        },
+        {
+          "id": "risk_reviewed",
+          "label": "The risk of infringing others' rights has been formally reviewed",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "mot.ownership",
+      "dimension": "MOT",
+      "text": "Is ownership settled between founders, any institution, and other contributors?",
+      "why": "University or employer involvement must be resolved in writing.",
+      "evidence_types": [
+        "ownership_agreement"
+      ],
+      "options": [
+        {
+          "id": "not_discussed",
+          "label": "Not discussed",
+          "stage": 1
+        },
+        {
+          "id": "verbal",
+          "label": "A verbal understanding only",
+          "stage": 2
+        },
+        {
+          "id": "signed",
+          "label": "Signed by all contributors and any institution involved",
+          "stage": 3
+        }
+      ]
+    },
+    {
+      "id": "mot.protection_route",
+      "dimension": "MOT",
+      "text": "Have you chosen how each asset will be protected: register it, keep it secret, or lock it in by contract?",
+      "why": "Different assets need different protection, and the reasons should be on paper.",
+      "evidence_types": [
+        "protection_plan"
+      ],
+      "options": [
+        {
+          "id": "not_chosen",
+          "label": "Not yet",
+          "stage": null
+        },
+        {
+          "id": "chosen_not_written",
+          "label": "Chosen for some assets, but not written down",
+          "stage": 3
+        },
+        {
+          "id": "written_plan",
+          "label": "A written plan gives the route for each asset, with reasons",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "mot.preparation",
+      "dimension": "MOT",
+      "text": "Is protection being prepared?",
+      "why": "Preparation with professional help is what turns a plan into a filing or a contract.",
+      "evidence_types": [
+        "draft_applications",
+        "attorney_engagement"
+      ],
+      "options": [
+        {
+          "id": "not_started",
+          "label": "Not started",
+          "stage": null
+        },
+        {
+          "id": "on_our_own",
+          "label": "We are preparing on our own, without professional help",
+          "stage": 4
+        },
+        {
+          "id": "with_professional",
+          "label": "Drafts are in progress with professional help",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "mot.record_keeping",
+      "dimension": "MOT",
+      "text": "Are records of what you create kept in a standard way, and is access controlled?",
+      "why": "Good records and confidentiality are what make secrets and know-how defensible.",
+      "evidence_types": [
+        "record_keeping",
+        "confidentiality_agreements"
+      ],
+      "options": [
+        {
+          "id": "no_records",
+          "label": "No",
+          "stage": null
+        },
+        {
+          "id": "informal",
+          "label": "Kept informally",
+          "stage": 4
+        },
+        {
+          "id": "standard",
+          "label": "Standard record-keeping is in use",
+          "stage": 5
+        },
+        {
+          "id": "standard_and_confidential",
+          "label": "Standard records, plus signed confidentiality agreements with those who have access",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "mot.formal_protection",
+      "dimension": "MOT",
+      "text": "What formal protection is in place?",
+      "why": "A filing or registration turns an intention into a dated asset.",
+      "evidence_types": [
+        "filing_receipt",
+        "issued_grants_or_registrations"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "stage": null
+        },
+        {
+          "id": "first_in_place",
+          "label": "A first filing or registration has been made",
+          "stage": 6
+        },
+        {
+          "id": "extended",
+          "label": "Extended to the markets and assets that matter commercially",
+          "stage": 7
+        },
+        {
+          "id": "issued",
+          "label": "Rights have been granted or registered",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "mot.business_link",
+      "dimension": "MOT",
+      "text": "How is your protected position linked to the business?",
+      "why": "Protection matters only if it earns or defends revenue.",
+      "evidence_types": [
+        "protection_revenue_plan",
+        "licensing_discussions",
+        "moat_value_record",
+        "renewal_monitoring_records"
+      ],
+      "options": [
+        {
+          "id": "not_linked",
+          "label": "Not linked yet",
+          "stage": null
+        },
+        {
+          "id": "tied_to_plan",
+          "label": "Tied to the business plan and to revenue",
+          "stage": 7
+        },
+        {
+          "id": "options_explored",
+          "label": "Licensing or partnership options built on it have been explored",
+          "stage": 8
+        },
+        {
+          "id": "earns_value",
+          "label": "It is monitored and renewed, and visibly earns value: licence income, exclusivity or a pricing advantage",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "tea.core_team",
+      "dimension": "TEA",
+      "text": "Who works on the venture today?",
+      "why": "This is the base for every other team answer. Use the conservative, named count.",
+      "evidence_types": [
+        "role_map",
+        "team_correspondence"
+      ],
+      "options": [
+        {
+          "id": "one_founder",
+          "label": "One founder",
+          "stage": 1
+        },
+        {
+          "id": "in_talks",
+          "label": "One founder, in talks with possible co-founders or first team members",
+          "stage": 2
+        },
+        {
+          "id": "core_team_partial",
+          "label": "A core team; roles partly agreed and time commitment uneven",
+          "stage": 3
+        },
+        {
+          "id": "roles_owned",
+          "label": "A core team where every role is written and owned",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "tea.gaps",
+      "dimension": "TEA",
+      "text": "Have you named the skills your team is missing?",
+      "why": "Knowing your gaps is worth more than appearing complete.",
+      "evidence_types": [
+        "gap_list"
+      ],
+      "options": [
+        {
+          "id": "not_considered",
+          "label": "Not considered yet",
+          "stage": null
+        },
+        {
+          "id": "informal",
+          "label": "We know them informally",
+          "stage": 3
+        },
+        {
+          "id": "written",
+          "label": "A written list of gaps, including those that need advisers",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "tea.rhythm",
+      "dimension": "TEA",
+      "text": "How does the team track progress?",
+      "why": "A steady rhythm beats occasional brilliance. A blank template is not a rhythm.",
+      "evidence_types": [
+        "weekly_tracker"
+      ],
+      "options": [
+        {
+          "id": "ad_hoc",
+          "label": "We meet when needed; no fixed rhythm",
+          "stage": null
+        },
+        {
+          "id": "unwritten",
+          "label": "Regular catch-ups, nothing written down",
+          "stage": 3
+        },
+        {
+          "id": "weekly_recorded",
+          "label": "Weekly goals and reviews, recorded for several consecutive weeks",
+          "stage": 4
+        },
+        {
+          "id": "kept_over_time",
+          "label": "The rhythm has been kept, with records, over many months",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "tea.advisers",
+      "dimension": "TEA",
+      "text": "Do you have active, independent advisers?",
+      "why": "Active means recent engagement. Relatives of founders do not count as independent.",
+      "evidence_types": [
+        "adviser_list"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "stage": null
+        },
+        {
+          "id": "names_only",
+          "label": "Named, but little recent activity, or related to the founders",
+          "stage": 4
+        },
+        {
+          "id": "active_independent",
+          "label": "Independent advisers with recent, recorded activity",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "tea.hiring_plan",
+      "dimension": "TEA",
+      "text": "Is there a hiring plan for your most pressing gap?",
+      "why": "A hire many months away does not close a pressing gap.",
+      "evidence_types": [
+        "hiring_plan",
+        "people_processes"
+      ],
+      "options": [
+        {
+          "id": "no_plan",
+          "label": "No plan",
+          "stage": null
+        },
+        {
+          "id": "informal",
+          "label": "An informal idea of who we need",
+          "stage": 4
+        },
+        {
+          "id": "written",
+          "label": "A written plan, with role and timing, for the most pressing gap",
+          "stage": 5
+        },
+        {
+          "id": "systems",
+          "label": "Hiring, onboarding and performance review run as documented processes",
+          "stage": 8
+        }
+      ]
+    },
+    {
+      "id": "tea.founder_agreement",
+      "dimension": "TEA",
+      "text": "Are founder ownership and decision rights agreed?",
+      "why": "Unsettled ownership between founders is a common cause of break-ups.",
+      "evidence_types": [
+        "founder_agreement",
+        "decision_records"
+      ],
+      "options": [
+        {
+          "id": "not_discussed",
+          "label": "Not discussed",
+          "stage": null
+        },
+        {
+          "id": "verbal",
+          "label": "Discussed; nothing in writing",
+          "stage": 3
+        },
+        {
+          "id": "drafted",
+          "label": "Drafted, not yet signed",
+          "stage": 5
+        },
+        {
+          "id": "signed",
+          "label": "A signed founder agreement, with decision rights recorded",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "tea.functions_covered",
+      "dimension": "TEA",
+      "text": "Are all critical functions covered, and is delivery predictable?",
+      "why": "Dependence on one founder for a critical function is a risk, whatever else is in place.",
+      "evidence_types": [
+        "role_map",
+        "delivery_record_against_plan"
+      ],
+      "options": [
+        {
+          "id": "uncovered",
+          "label": "Some critical functions are uncovered",
+          "stage": null
+        },
+        {
+          "id": "covered_uneven",
+          "label": "Covered, but delivery against plan is uneven",
+          "stage": 6
+        },
+        {
+          "id": "covered_predictable",
+          "label": "Covered by capable people, delivery tracked against plan, with structure beyond the founders",
+          "stage": 7
+        }
+      ]
+    },
+    {
+      "id": "tea.leadership",
+      "dimension": "TEA",
+      "text": "Who runs the company day to day?",
+      "why": "An organisation is mature when it runs without its founders in every task.",
+      "evidence_types": [
+        "governance_records",
+        "leadership_structure"
+      ],
+      "options": [
+        {
+          "id": "founders_everything",
+          "label": "The founders handle everything",
+          "stage": null
+        },
+        {
+          "id": "some_areas",
+          "label": "Some areas run without the founders",
+          "stage": 7
+        },
+        {
+          "id": "leadership_team",
+          "label": "A leadership team runs the company, with governance records",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "cap.runway_view",
+      "dimension": "CAP",
+      "text": "Do you know how much money you need and how long your cash will last?",
+      "why": "What matters first is that a runway has been worked out at all.",
+      "evidence_types": [
+        "budget_runway_sheet"
+      ],
+      "options": [
+        {
+          "id": "no_view",
+          "label": "No clear view yet",
+          "stage": 1
+        },
+        {
+          "id": "single_total",
+          "label": "A single rough total",
+          "stage": 1
+        },
+        {
+          "id": "budget",
+          "label": "A budget showing monthly spend, cash in hand and months remaining",
+          "stage": 2
+        }
+      ]
+    },
+    {
+      "id": "cap.pitch",
+      "dimension": "CAP",
+      "text": "What state is your funding pitch in?",
+      "why": "Grants count the same as investment; the pitch is what either funder reads first.",
+      "evidence_types": [
+        "pitch_deck",
+        "data_pack"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "No pitch yet",
+          "stage": null
+        },
+        {
+          "id": "partial",
+          "label": "An early or partial draft",
+          "stage": 2
+        },
+        {
+          "id": "complete",
+          "label": "Complete: problem, solution, market, traction, team and ask",
+          "stage": 3
+        },
+        {
+          "id": "with_data",
+          "label": "Complete, and backed by a pack of supporting data",
+          "stage": 4
+        }
+      ]
+    },
+    {
+      "id": "cap.milestones",
+      "dimension": "CAP",
+      "text": "Are your milestones defined and tied to amounts of money?",
+      "why": "Funders back milestones, not general growth.",
+      "evidence_types": [
+        "milestone_list",
+        "milestone_capital_map"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "Not defined",
+          "stage": null
+        },
+        {
+          "id": "listed",
+          "label": "A list of milestones exists",
+          "stage": 3
+        },
+        {
+          "id": "tied_to_amounts",
+          "label": "Each milestone is tied to an amount",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "cap.funder_progress",
+      "dimension": "CAP",
+      "text": "Where are you with funders?",
+      "why": "A list of funders is a plan; a dated exchange is progress.",
+      "evidence_types": [
+        "outreach_plan",
+        "funder_correspondence"
+      ],
+      "options": [
+        {
+          "id": "undecided",
+          "label": "The route to money is not decided",
+          "stage": null
+        },
+        {
+          "id": "plan_no_contact",
+          "label": "A written plan names whom to approach; no contact yet",
+          "stage": 4
+        },
+        {
+          "id": "live",
+          "label": "Live, dated exchanges with named funders",
+          "stage": 5
+        }
+      ]
+    },
+    {
+      "id": "cap.use_of_funds",
+      "dimension": "CAP",
+      "text": "Is your use of funds clear?",
+      "why": "A vague use of funds is the commonest reason a ready funder waits.",
+      "evidence_types": [
+        "use_of_funds_statement"
+      ],
+      "options": [
+        {
+          "id": "not_clear",
+          "label": "Not yet",
+          "stage": null
+        },
+        {
+          "id": "general",
+          "label": "A general description",
+          "stage": 5
+        },
+        {
+          "id": "written",
+          "label": "A written use-of-funds statement",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "cap.document_set",
+      "dimension": "CAP",
+      "text": "Are the documents a funder would ask for ready?",
+      "why": "Being able to take money now means the paperwork already exists.",
+      "evidence_types": [
+        "funder_document_set"
+      ],
+      "options": [
+        {
+          "id": "not_ready",
+          "label": "Not ready",
+          "stage": null
+        },
+        {
+          "id": "some",
+          "label": "Some are ready",
+          "stage": 5
+        },
+        {
+          "id": "full_set",
+          "label": "The full set is ready to share",
+          "stage": 6
+        }
+      ]
+    },
+    {
+      "id": "cap.commitments",
+      "dimension": "CAP",
+      "text": "What funding commitments do you have?",
+      "why": "Only commitments in writing, to this entity, are counted.",
+      "evidence_types": [
+        "commitment_letter",
+        "bank_or_grant_record",
+        "capital_offers"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "None",
+          "stage": null
+        },
+        {
+          "id": "verbal",
+          "label": "Verbal or soft interest only",
+          "stage": 5
+        },
+        {
+          "id": "written_in_progress",
+          "label": "A written commitment or term sheet is in progress, made to this entity",
+          "stage": 7
+        },
+        {
+          "id": "funds_received",
+          "label": "Funds have been received",
+          "stage": 8
+        },
+        {
+          "id": "several_sources",
+          "label": "We can choose between several offers or facilities",
+          "stage": 9
+        }
+      ]
+    },
+    {
+      "id": "cap.controls",
+      "dimension": "CAP",
+      "text": "How do you plan and control your finances?",
+      "why": "Controls and forecasting are what let a funder trust the next round to you.",
+      "evidence_types": [
+        "runway_plan",
+        "management_accounts",
+        "forecast_vs_actuals"
+      ],
+      "options": [
+        {
+          "id": "none",
+          "label": "No formal planning yet",
+          "stage": null
+        },
+        {
+          "id": "runway_planned",
+          "label": "The runway is planned against written commitments",
+          "stage": 7
+        },
+        {
+          "id": "controls_working",
+          "label": "Management accounts are kept and financial controls are working",
+          "stage": 8
+        },
+        {
+          "id": "forecast_checked",
+          "label": "Forecasts are checked against actual results, with governance over them",
+          "stage": 9
+        }
+      ]
+    }
+  ]
+}

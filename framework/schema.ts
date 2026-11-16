@@ -90,6 +90,8 @@ export const questionsSchema = z
           id: z.string().regex(/^(cus|prd|biz|mot|tea|cap)\.[a-z][a-z0-9_]*$/, "use <dimension>.<snake_case>"),
           dimension: dimensionCode,
           text: text,
+          /** One line shown to the founder: why this is asked. */
+          why: text.optional(),
           evidence_types: z.array(slug).min(1),
           options: z.array(optionSchema).min(2),
         })
