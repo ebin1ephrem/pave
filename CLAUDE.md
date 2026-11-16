@@ -4,8 +4,8 @@
 - PAVE is the Venture Progression Assessment tool. It runs on Merstra's Venture Progression Assessment Framework (VPAF). The output report is the Venture Progression Profile (VPP).
 - Banned vocabulary: the legacy product name, its dimension codes, and every third-party framework name are listed in `/framework/banned-terms.txt`. None of them may appear anywhere in code, UI copy, seed data, comments or docs. That file is the single place the terms are listed. Only it and `/docs/audit.md` (which quotes the legacy code) are excluded from the banned-term grep.
 - Framework shape: 6 dimensions x 9 stages.
-  - Dimensions: Customer (CUS), Product (PRD), Business Model (BIZ), Defensibility (DEF), Team (TEA), Capital (CAP).
-  - Stages 1-9: Premise, Probe, Define, Verify, Trial, Pilot, Transact, Repeat, Scale.
+  - Dimensions: Customer (CUS), Product (PRD), Business Model (BIZ), Moat (MOT), Team (TEA), Capital (CAP).
+  - Stages are numbers only, shown as "Stage 1" to "Stage 9". Never give stages names and never call them "levels".
   - Bands: Explore (1-3), Validate (4-6), Scale (7-9).
 - All framework wording must be written fresh from the behavioural criteria in `/framework/source-notes.md`. Do not reproduce or paraphrase descriptor text from any published framework.
 

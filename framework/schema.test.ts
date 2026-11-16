@@ -27,7 +27,6 @@ function validVpaf(): Vpaf {
       name: d.name,
       stages: STAGES.map((s) => ({
         stage: s.stage,
-        name: s.name,
         band: s.band,
         descriptor: `Placeholder behaviour for ${d.name} at stage ${s.stage}`,
         evidence_required: ["signed_document", "founder_notes"],
@@ -112,13 +111,22 @@ describe("validateVpaf", () => {
     expect(findBannedTerms("the azqxb value", BANNED)).toEqual([]);
   });
 
-  it("fails on wrong stage name or band", () => {
+  it("fails on a wrong band", () => {
     const v = validVpaf();
-    v.dimensions[0]!.stages[3]!.name = "Check";
     v.dimensions[0]!.stages[6]!.band = "Validate";
-    const issues = validateVpaf(v, BANNED);
-    expect(issues).toContain('CUS.4: stage name must be "Verify"');
-    expect(issues).toContain('CUS.7: band must be "Scale"');
+    expect(validateVpaf(v, BANNED)).toContain('CUS.7: band must be "Scale"');
+  });
+
+  it("rejects a stage that carries a name", () => {
+    const v = validVpaf() as any;
+    v.dimensions[0].stages[0].name = "Premise";
+    expect(validateVpaf(v, BANNED).length).toBeGreaterThan(0);
+  });
+
+  it("fails when a stage is called a level", () => {
+    const v = validVpaf();
+    v.dimensions[0]!.stages[0]!.descriptor = "The team reaches the next level of sales";
+    expect(validateVpaf(v, BANNED).some((i) => i.includes('"level"'))).toBe(true);
   });
 
   it("fails on unknown or unrated evidence types", () => {

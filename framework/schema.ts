@@ -5,22 +5,26 @@ export const DIMENSIONS = [
   { code: "CUS", name: "Customer" },
   { code: "PRD", name: "Product" },
   { code: "BIZ", name: "Business Model" },
-  { code: "DEF", name: "Defensibility" },
+  { code: "MOT", name: "Moat" },
   { code: "TEA", name: "Team" },
   { code: "CAP", name: "Capital" },
 ] as const;
 
+/** Stages are numbers only ("Stage 1" to "Stage 9"). They have no names. */
 export const STAGES = [
-  { stage: 1, name: "Premise", band: "Explore" },
-  { stage: 2, name: "Probe", band: "Explore" },
-  { stage: 3, name: "Define", band: "Explore" },
-  { stage: 4, name: "Verify", band: "Validate" },
-  { stage: 5, name: "Trial", band: "Validate" },
-  { stage: 6, name: "Pilot", band: "Validate" },
-  { stage: 7, name: "Transact", band: "Scale" },
-  { stage: 8, name: "Repeat", band: "Scale" },
-  { stage: 9, name: "Scale", band: "Scale" },
+  { stage: 1, band: "Explore" },
+  { stage: 2, band: "Explore" },
+  { stage: 3, band: "Explore" },
+  { stage: 4, band: "Validate" },
+  { stage: 5, band: "Validate" },
+  { stage: 6, band: "Validate" },
+  { stage: 7, band: "Scale" },
+  { stage: 8, band: "Scale" },
+  { stage: 9, band: "Scale" },
 ] as const;
+
+/** Words that must not appear in framework content: stages are never called these. */
+export const FRAMEWORK_FORBIDDEN_WORDS = ["level", "levels"];
 
 export const MAX_DESCRIPTOR_WORDS = 20;
 export const MIN_QUESTIONS_PER_DIMENSION = 8;
@@ -28,7 +32,7 @@ export const MAX_QUESTIONS_PER_DIMENSION = 12;
 
 export type DimensionCode = (typeof DIMENSIONS)[number]["code"];
 
-const dimensionCode = z.enum(["CUS", "PRD", "BIZ", "DEF", "TEA", "CAP"]);
+const dimensionCode = z.enum(["CUS", "PRD", "BIZ", "MOT", "TEA", "CAP"]);
 const stageNumber = z.number().int().min(1).max(9);
 const slug = z.string().regex(/^[a-z][a-z0-9_]*$/, "use lower_snake_case");
 const text = z.string().trim().min(1);
@@ -38,7 +42,6 @@ const evidenceTypeSchema = z.object({ id: slug, label: text }).strict();
 const stageSchema = z
   .object({
     stage: stageNumber,
-    name: text,
     band: z.enum(["Explore", "Validate", "Scale"]),
     descriptor: text,
     evidence_required: z.array(slug).min(1),
@@ -71,7 +74,7 @@ export const questionsSchema = z
     questions: z.array(
       z
         .object({
-          id: z.string().regex(/^(cus|prd|biz|def|tea|cap)\.[a-z][a-z0-9_]*$/, "use <dimension>.<snake_case>"),
+          id: z.string().regex(/^(cus|prd|biz|mot|tea|cap)\.[a-z][a-z0-9_]*$/, "use <dimension>.<snake_case>"),
           dimension: dimensionCode,
           text: text,
           evidence_types: z.array(slug).min(1),
@@ -154,7 +157,6 @@ export function validateVpaf(input: unknown, banned: string[]): string[] {
         issues.push(`${at}: cell missing`);
         continue;
       }
-      if (cell.name !== s.name) issues.push(`${at}: stage name must be "${s.name}"`);
       if (cell.band !== s.band) issues.push(`${at}: band must be "${s.band}"`);
 
       const words = wordCount(cell.descriptor);
@@ -175,7 +177,7 @@ export function validateVpaf(input: unknown, banned: string[]): string[] {
     }
   }
 
-  return [...issues, ...findBannedTerms(vpaf, banned, "vpaf")];
+  return [...issues, ...findBannedTerms(vpaf, [...banned, ...FRAMEWORK_FORBIDDEN_WORDS], "vpaf")];
 }
 
 /** Returns a list of problems. Empty list = valid. Needs a valid VPAF for evidence-type lookups. */
@@ -207,5 +209,5 @@ export function validateQuestions(input: unknown, vpaf: Vpaf, banned: string[]):
     }
   }
 
-  return [...issues, ...findBannedTerms(bank, banned, "questions")];
+  return [...issues, ...findBannedTerms(bank, [...banned, ...FRAMEWORK_FORBIDDEN_WORDS], "questions")];
 }
