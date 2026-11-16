@@ -1,5 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { SessionProvider } from "@/auth/session";
+import FounderAssessment from "@/pages/founder/assessment";
+import FounderForm from "@/pages/founder/form";
+import FounderOverview from "@/pages/founder/overview";
+import { RequireRole } from "@/pages/guard";
 import NotFound from "@/pages/not-found";
 import SectionPage from "@/pages/section";
 import SignIn from "@/pages/sign-in";
@@ -38,6 +42,11 @@ export default function App() {
           {/* App */}
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/styleguide" element={<Styleguide />} />
+          <Route element={<RequireRole role="founder" />}>
+            <Route path="/founder" element={<FounderOverview />} />
+            <Route path="/founder/assessment" element={<FounderAssessment />} />
+            <Route path="/founder/assessment/:type" element={<FounderForm />} />
+          </Route>
           {["/founder/*", "/manager/*", "/customer/*", "/admin/*"].map((path) => (
             <Route key={path} path={path} element={<SectionPage />} />
           ))}
