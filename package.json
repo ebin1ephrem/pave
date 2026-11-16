@@ -1,0 +1,21 @@
+{
+  "name": "pave",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "validate:framework": "vite-node scripts/validate-framework.ts",
+    "check:banned": "! grep -rniwFf framework/banned-terms.txt . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist --exclude=banned-terms.txt --exclude=audit.md --exclude=package-lock.json"
+  },
+  "dependencies": {
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.16.5",
+    "typescript": "^5.8.3",
+    "vite-node": "^3.2.4",
+    "vitest": "^3.2.4"
+  }
+}

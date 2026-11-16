@@ -241,3 +241,7 @@ Third-party framework references and descriptor text that reads as taken from ou
 Cost of this choice: a new Supabase project and a data migration instead of in-place `ALTER`s. That cost exists either way because of the drift.
 
 Take the legacy site's compliance and "used by" claims down now, independent of this decision.
+
+## Decision
+
+2026-11-16: **clean repo.** PAVE is built in `ebin1ephrem/pave`; selected modules are ported from the legacy app per the table above. The legacy repo is left untouched until the Prompt 8 data migration.
