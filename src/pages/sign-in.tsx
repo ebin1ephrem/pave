@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ROLE_HOME, ROLE_LABEL, useSession, type Role } from "@/auth/session";
 import { Brand } from "@/components/shell/brand";
 import { Button } from "@/components/ui/button";
@@ -25,8 +25,10 @@ export default function SignIn() {
     <main className="grid min-h-dvh lg:grid-cols-[1fr_44%]">
       <div className="flex items-center justify-center px-5 py-16">
         <div className="w-full max-w-[380px]">
-          <Brand className="mb-11" />
-          <h1 className="text-[30px] leading-[1.1] font-medium tracking-[-0.035em]">Sign in</h1>
+          <Link to="/" aria-label="PAVE, home" className="mb-11 inline-flex">
+            <Brand />
+          </Link>
+          <h1 className="text-[30px] leading-[1.1] font-medium tracking-[-0.035em]">Sign in to PAVE</h1>
           <Hint className="mt-2">Enter your email and we will send you a sign-in link.</Hint>
 
           <form onSubmit={onSubmit} className="mt-8 grid gap-4" noValidate>
@@ -44,7 +46,7 @@ export default function SignIn() {
               />
             </div>
             <Button type="submit" disabled={!email.includes("@")}>
-              Send sign-in link
+              Send link
             </Button>
             {notice ? (
               <p id="sign-in-notice" role="status" className="text-[13px] text-warn">
@@ -52,6 +54,14 @@ export default function SignIn() {
               </p>
             ) : null}
           </form>
+
+          <p className="mt-6 text-[13.5px] leading-relaxed text-muted">
+            PAVE is by invitation. Ask your program manager, or{" "}
+            <Link to="/demo" className="text-ink underline underline-offset-2">
+              book a demo
+            </Link>
+            .
+          </p>
 
           {import.meta.env.DEV ? (
             <div className="mt-10 border-t border-line pt-6">
