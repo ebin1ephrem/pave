@@ -91,7 +91,7 @@ function SiteHeader() {
 
   const account = user ? (
     <Button asChild variant="ghost" size="sm">
-      <Link to={ROLE_HOME[user.role]}>Open PAVE</Link>
+      <Link to={(user.role ? ROLE_HOME[user.role] : "/founder")}>Open PAVE</Link>
     </Button>
   ) : (
     <Button asChild variant="ghost" size="sm">
@@ -168,7 +168,7 @@ function SiteHeader() {
             ))}
             <li className="mt-3 grid grid-cols-2 gap-2">
               <Button asChild variant="secondary">
-                <Link to={user ? ROLE_HOME[user.role] : "/sign-in"}>{user ? "Open PAVE" : "Sign in"}</Link>
+                <Link to={user ? (user.role ? ROLE_HOME[user.role] : "/founder") : "/sign-in"}>{user ? "Open PAVE" : "Sign in"}</Link>
               </Button>
               <Button asChild>
                 <Link to="/demo">Book a demo</Link>

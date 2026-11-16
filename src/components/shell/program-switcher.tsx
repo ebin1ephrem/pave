@@ -16,7 +16,7 @@ export function ProgramSwitcher() {
     return (
       <p className="min-w-0 truncate text-[13.5px]">
         <span className="font-medium">{current.name}</span>
-        <span className="text-muted"> · {current.tenant}</span>
+        {current.tenant ? <span className="text-muted"> · {current.tenant}</span> : null}
       </p>
     );
   }
@@ -33,7 +33,7 @@ export function ProgramSwitcher() {
       >
         {user.programs.map((p) => (
           <option key={p.id} value={p.id}>
-            {p.name} · {p.tenant}
+            {p.tenant ? `${p.name} · ${p.tenant}` : p.name}
           </option>
         ))}
       </select>

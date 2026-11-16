@@ -11,9 +11,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   const { user, signOut } = useSession();
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
-  if (!user) return null;
+  if (!user || !user.role) return null;
+  const role = user.role;
 
-  const home = ROLE_HOME[user.role];
+  const home = ROLE_HOME[role];
   const isActive = (href: string) => (href === home ? pathname === home : pathname.startsWith(href));
 
   return (
@@ -45,11 +46,11 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Link to={home}>
             <Brand />
           </Link>
-          <p className="mt-1 pl-9 text-[11px] tracking-[0.09em] text-faint uppercase">{ROLE_LABEL[user.role]}</p>
+          <p className="mt-1 pl-9 text-[11px] tracking-[0.09em] text-faint uppercase">{ROLE_LABEL[role]}</p>
         </div>
 
         <nav aria-label="Main" className="grid gap-6 px-3 pt-3 pb-6 lg:pt-0">
-          {NAV[user.role].map((section) => (
+          {NAV[role].map((section) => (
             <div key={section.title}>
               <p className="mb-1.5 px-2 text-[11px] font-semibold tracking-[0.09em] text-faint uppercase">
                 {section.title}
@@ -91,7 +92,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <p className="truncate text-[12px] text-muted">{user.email}</p>
           <button
             type="button"
-            onClick={signOut}
+            onClick={() => void signOut()}
             className="mt-2.5 cursor-pointer text-[12.5px] text-muted underline-offset-2 hover:text-ink hover:underline"
           >
             Sign out
@@ -102,7 +103,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="min-w-0">
         <div className="flex items-center justify-between gap-4 border-b border-line bg-canvas px-5 py-3 lg:px-9">
           <ProgramSwitcher />
-          <span className="pill hidden sm:inline-flex">{ROLE_LABEL[user.role]}</span>
+          <span className="pill hidden sm:inline-flex">{ROLE_LABEL[role]}</span>
         </div>
         <main>{children}</main>
       </div>
