@@ -7,14 +7,31 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "validate:framework": "vite-node scripts/validate-framework.ts",
-    "check:banned": "! grep -rniwFf framework/banned-terms.txt . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist --exclude=banned-terms.txt --exclude=audit.md --exclude=package-lock.json"
+    "check:banned": "! grep -rniwFf framework/banned-terms.txt . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=dist --exclude=banned-terms.txt --exclude=audit.md --exclude=package-lock.json",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.462.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.1",
+    "tailwind-merge": "^3.3.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
     "@types/node": "^22.16.5",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.1.0",
     "typescript": "^5.8.3",
+    "vite": "^5.4.19",
     "vite-node": "^3.2.4",
     "vitest": "^3.2.4"
   }
