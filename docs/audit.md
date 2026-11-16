@@ -245,3 +245,5 @@ Take the legacy site's compliance and "used by" claims down now, independent of 
 ## Decision
 
 2026-11-16: **clean repo.** PAVE is built in `ebin1ephrem/pave`; selected modules are ported from the legacy app per the table above. The legacy repo is left untouched until the Prompt 8 data migration.
+
+2026-11-16: **no legacy data migration.** PAVE starts with an empty database. Nothing is carried over from the legacy app, so Prompt 8 reduces to redirects and the vocabulary check; the 1:1 mapping of old scores is no longer a constraint.
