@@ -52,7 +52,10 @@ export default function FounderOverview() {
     };
   }, [status, enrollment]);
 
-  const open = enrollment?.checkpoints.find((c) => c.status === "in_progress") ?? enrollment?.checkpoints.find((c) => c.status === "not_started");
+  const isOpen = (c: Checkpoint) => enrollment?.windows[c.type]?.is_open === true;
+  const open =
+    enrollment?.checkpoints.find((c) => c.status === "in_progress" && isOpen(c)) ??
+    enrollment?.checkpoints.find((c, i, all) => c.status === "not_started" && isOpen(c) && all.slice(0, i).every((p) => p.status === "submitted" || p.status === "reviewed"));
   const lowest = profile ? bottleneck(profile.scores) : null;
   const average = profile ? profile.scores.reduce((t, s) => t + s.stage, 0) / profile.scores.length : 0;
   const missingCount = profile ? profile.scores.filter((s) => s.nextStage && s.nextStage.needs.length > 0).length : 0;

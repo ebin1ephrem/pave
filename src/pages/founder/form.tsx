@@ -18,6 +18,7 @@ import {
   evidenceHref,
   loadCheckpointData,
   loadEnrollment,
+  loadEnrollmentById,
   removeEvidence,
   saveResponse,
   submitCheckpoint,
@@ -45,8 +46,9 @@ const REVIEW_BADGE = {
 const blank = (questionId: string): ResponseRow => ({ question_id: questionId, option_id: null, narrative: null, carry_status: null });
 const isAnswered = (r: ResponseRow | undefined) => !!r?.option_id;
 
-export default function FounderForm() {
-  const { type } = useParams();
+/** The six-step assessment. A manager can open it for any startup they manage and fill it in on the founder's behalf. */
+export default function FounderForm({ asManager = false }: { asManager?: boolean }) {
+  const { type, enrollmentId } = useParams();
   const navigate = useNavigate();
   const { user, programId } = useSession();
   const checkpointType = CHECKPOINT_ORDER.find((t) => t === type) as CheckpointType | undefined;
@@ -71,14 +73,18 @@ export default function FounderForm() {
   }, [enrollment, checkpointType]);
   const needsPrior = checkpointType !== undefined && checkpointType !== "benchmark";
   const blocked = needsPrior && enrollment !== null && !priorCheckpoint;
-  const locked = checkpoint ? checkpoint.status === "submitted" || checkpoint.status === "reviewed" : false;
+  const submitted = checkpoint ? checkpoint.status === "submitted" || checkpoint.status === "reviewed" : false;
+  // Founders can only write while their manager has the checkpoint open. Managers are not bound by the window.
+  const windowOpen = asManager || (checkpointType ? enrollment?.windows[checkpointType]?.is_open === true : false);
+  const locked = submitted || !windowOpen;
+  const home = asManager ? "/manager/startups" : "/founder";
 
   useEffect(() => {
-    if (!programId || !checkpointType) return;
+    if (!checkpointType || (asManager ? !enrollmentId : !programId)) return;
     let cancelled = false;
     (async () => {
       try {
-        const e = await loadEnrollment(programId);
+        const e = asManager ? await loadEnrollmentById(enrollmentId!) : await loadEnrollment(programId!);
         if (cancelled) return;
         const cp = e?.checkpoints.find((c) => c.type === checkpointType);
         if (!e || !cp) return setLoadState("missing");
@@ -103,7 +109,7 @@ export default function FounderForm() {
     return () => {
       cancelled = true;
     };
-  }, [programId, checkpointType]);
+  }, [programId, checkpointType, asManager, enrollmentId]);
 
   const persist = useCallback(
     async (row: ResponseRow) => {
@@ -111,7 +117,7 @@ export default function FounderForm() {
       inFlight.current += 1;
       setSaveState("saving");
       try {
-        await saveResponse(checkpoint.id, row);
+        await saveResponse(checkpoint.id, row, asManager);
         inFlight.current -= 1;
         if (inFlight.current === 0 && pending.current.size === 0) setSaveState("saved");
       } catch {
@@ -119,7 +125,7 @@ export default function FounderForm() {
         setSaveState("error");
       }
     },
-    [checkpoint],
+    [checkpoint, asManager],
   );
 
   const latest = useRef(responses);
@@ -128,7 +134,7 @@ export default function FounderForm() {
   /** Updates an answer locally and saves it: at once for choices, after a pause for typing. */
   const update = useCallback(
     (questionId: string, patch: Partial<ResponseRow>, debounce = false) => {
-      const next = { ...(latest.current[questionId] ?? blank(questionId)), ...patch };
+      const next = { ...(latest.current[questionId] ?? blank(questionId)), ...patch, entered_by_manager: asManager };
       latest.current = { ...latest.current, [questionId]: next };
       setResponses(latest.current);
 
@@ -145,7 +151,7 @@ export default function FounderForm() {
         }, 700),
       );
     },
-    [persist],
+    [persist, asManager],
   );
 
   // Save anything still waiting when the founder leaves the page.
@@ -176,8 +182,8 @@ export default function FounderForm() {
     [responses, evidence, previous],
   );
 
-  if (!checkpointType) return <Navigate to="/founder/assessment" replace />;
-  if (user?.preview) return <Navigate to="/founder/assessment" replace />;
+  const listPath = asManager ? "/manager/startups" : "/founder/assessment";
+  if (!checkpointType || user?.preview) return <Navigate to={listPath} replace />;
 
   const title = `${CHECKPOINT_LABEL[checkpointType]} assessment`;
   const shell = (body: React.ReactNode) => (
@@ -192,7 +198,7 @@ export default function FounderForm() {
     return shell(<EmptyState title="We could not load your assessment" body="Check your connection and reload the page. Your saved answers are not affected." />);
   }
   if (loadState === "missing" || !checkpoint || !enrollment) {
-    return shell(<EmptyState title="No assessment found" body="Your startup is not enrolled in this program. Ask your program manager to check your invitation." />);
+    return shell(<EmptyState title="No assessment found" body={asManager ? "This startup is not in a program you manage." : "Your startup is not enrolled in this program. Ask your program manager to check your invitation."} />);
   }
   if (blocked) {
     return shell(
@@ -200,7 +206,7 @@ export default function FounderForm() {
         icon={Lock}
         title={`${CHECKPOINT_LABEL[checkpointType]} is not open yet`}
         body="It opens once the checkpoint before it has been submitted."
-        action={<Button asChild size="sm" variant="secondary"><Link to="/founder/assessment">Back to checkpoints</Link></Button>}
+        action={<Button asChild size="sm" variant="secondary"><Link to={listPath}>Back</Link></Button>}
       />,
     );
   }
@@ -217,11 +223,11 @@ export default function FounderForm() {
       for (const [questionId, timer] of pending.current) {
         clearTimeout(timer);
         const row = latest.current[questionId];
-        if (row) await saveResponse(checkpoint.id, row);
+        if (row) await saveResponse(checkpoint.id, row, asManager);
       }
       pending.current.clear();
       await submitCheckpoint(checkpoint.id);
-      navigate("/founder", { state: { submitted: checkpointType } });
+      navigate(home, { state: { submitted: checkpointType } });
     } catch (e) {
       setSubmitError(e instanceof Error ? e.message : "Submitting failed. Try again.");
       setConfirming(false);
@@ -234,13 +240,19 @@ export default function FounderForm() {
         eyebrow={enrollment.startupName}
         title={title}
         description={
-          locked
-            ? "This checkpoint has been submitted and is locked. Only your program manager can reopen it."
-            : "Pick the option that describes where you are today, and attach the proof. You can leave and come back; everything saves as you go."
+          submitted
+            ? asManager
+              ? "This checkpoint has been submitted and is locked. Reopen it from the Startups page to change it."
+              : "This checkpoint has been submitted and is locked. Only your program manager can reopen it."
+            : !windowOpen
+              ? "This checkpoint is not open. Your program manager opens and closes each checkpoint; you can read your answers but not change them."
+              : asManager
+                ? "You are filling this in on the founder's behalf. Everything you enter is marked as entered by manager."
+                : "Pick the option that describes where you are today, and attach the proof. You can leave and come back; everything saves as you go."
         }
         actions={
           locked ? (
-            <Badge tone="dark"><Lock className="size-3" aria-hidden="true" /> Submitted</Badge>
+            <Badge tone={submitted ? "dark" : "faint"}><Lock className="size-3" aria-hidden="true" /> {submitted ? "Submitted" : "Closed"}</Badge>
           ) : (
             <span role="status" aria-live="polite" className={cn("text-[12.5px]", saveState === "error" ? "text-danger" : "text-muted")}>
               {saveState === "saving" ? "Saving…" : saveState === "saved" ? "All changes saved" : saveState === "error" ? "Could not save. Check your connection." : `${totals.answered} of ${totals.total} answered`}
@@ -341,7 +353,7 @@ export default function FounderForm() {
               Next: {DIMENSIONS[step + 1]!.name} <ArrowRight className="size-4" aria-hidden="true" />
             </Button>
           ) : locked ? (
-            <Button asChild><Link to="/founder">View your profile</Link></Button>
+            <Button asChild><Link to={home}>{asManager ? "Back to startups" : submitted ? "View your profile" : "Back to overview"}</Link></Button>
           ) : confirming ? (
             <span className="flex flex-wrap items-center gap-2">
               <span className="text-[13px] text-muted">Submit and lock?</span>
@@ -404,8 +416,9 @@ function QuestionCard({
 
   return (
     <article className="rounded-[12px] border border-line bg-canvas p-4 sm:p-5" aria-labelledby={`${name}-label`}>
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <p className="font-display text-[12px] font-medium text-muted tabular-nums">{String(index).padStart(2, "0")}</p>
+      <div className="flex flex-wrap items-start gap-2">
+        <p className="mr-auto font-display text-[12px] font-medium text-muted tabular-nums">{String(index).padStart(2, "0")}</p>
+        {response?.entered_by_manager ? <Badge>Entered by manager</Badge> : null}
         {needsProof ? (
           hasProof ? (
             <Badge tone="ok"><Paperclip className="size-3" aria-hidden="true" /> Evidence attached</Badge>

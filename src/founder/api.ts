@@ -26,11 +26,19 @@ export interface Checkpoint {
   submitted_at: string | null;
 }
 
+export interface Window {
+  is_open: boolean;
+  due_date: string | null;
+}
+
 export interface Enrollment {
   id: string;
   tenant_id: string;
+  program_id: string;
   startupName: string;
   checkpoints: Checkpoint[];
+  /** Whether each checkpoint is open for founders, set by the program manager. */
+  windows: Partial<Record<CheckpointType, Window>>;
 }
 
 export interface ResponseRow {
@@ -38,6 +46,7 @@ export interface ResponseRow {
   option_id: string | null;
   narrative: string | null;
   carry_status: CarryStatus | null;
+  entered_by_manager?: boolean;
 }
 
 export interface EvidenceRow {
@@ -84,33 +93,48 @@ function fail(error: { message: string } | null): void {
   if (error) throw new Error(error.message);
 }
 
-/** The signed-in founder's enrollment in a program, with its three checkpoints. Null if there is none. */
-export async function loadEnrollment(programId: string): Promise<Enrollment | null> {
-  const { data, error } = await db()
-    .from("enrollments")
-    .select("id, tenant_id, startups(name), checkpoints(id, type, status, submitted_at)")
-    .eq("program_id", programId)
-    .limit(1)
-    .maybeSingle();
-  fail(error);
+const ENROLLMENT_COLUMNS = "id, tenant_id, program_id, startups(name), checkpoints(id, type, status, submitted_at)";
+
+async function toEnrollment(data: unknown): Promise<Enrollment | null> {
   if (!data) return null;
-  const row = data as unknown as {
+  const row = data as {
     id: string;
     tenant_id: string;
+    program_id: string;
     startups: { name: string } | null;
     checkpoints: Checkpoint[];
   };
+  const windows = await db().from("checkpoint_windows").select("type, is_open, due_date").eq("program_id", row.program_id);
+  fail(windows.error);
   return {
     id: row.id,
     tenant_id: row.tenant_id,
+    program_id: row.program_id,
     startupName: row.startups?.name ?? "Your startup",
     checkpoints: [...row.checkpoints].sort((a, b) => CHECKPOINT_ORDER.indexOf(a.type) - CHECKPOINT_ORDER.indexOf(b.type)),
+    windows: Object.fromEntries(
+      ((windows.data ?? []) as ({ type: CheckpointType } & Window)[]).map((w) => [w.type, { is_open: w.is_open, due_date: w.due_date }]),
+    ),
   };
+}
+
+/** The signed-in founder's enrollment in a program, with its three checkpoints. Null if there is none. */
+export async function loadEnrollment(programId: string): Promise<Enrollment | null> {
+  const { data, error } = await db().from("enrollments").select(ENROLLMENT_COLUMNS).eq("program_id", programId).limit(1).maybeSingle();
+  fail(error);
+  return toEnrollment(data);
+}
+
+/** One enrollment by id, for a manager filling in an assessment on a founder's behalf. */
+export async function loadEnrollmentById(enrollmentId: string): Promise<Enrollment | null> {
+  const { data, error } = await db().from("enrollments").select(ENROLLMENT_COLUMNS).eq("id", enrollmentId).maybeSingle();
+  fail(error);
+  return toEnrollment(data);
 }
 
 export async function loadCheckpointData(checkpointId: string): Promise<CheckpointData> {
   const [responses, evidence] = await Promise.all([
-    db().from("responses").select("question_id, option_id, narrative, carry_status").eq("checkpoint_id", checkpointId),
+    db().from("responses").select("question_id, option_id, narrative, carry_status, entered_by_manager").eq("checkpoint_id", checkpointId),
     db()
       .from("evidence")
       .select("id, checkpoint_id, kind, url, storage_path, file_name, evidence_type, dimension, question_id, review_status, review_note")
@@ -123,7 +147,7 @@ export async function loadCheckpointData(checkpointId: string): Promise<Checkpoi
 }
 
 /** Saves one answer. A question with nothing chosen, written or carried is stored as no row at all. */
-export async function saveResponse(checkpointId: string, row: ResponseRow): Promise<void> {
+export async function saveResponse(checkpointId: string, row: ResponseRow, asManager = false): Promise<void> {
   const empty = !row.option_id && !row.narrative?.trim() && !row.carry_status;
   if (empty) {
     const { error } = await db().from("responses").delete().eq("checkpoint_id", checkpointId).eq("question_id", row.question_id);
@@ -139,6 +163,7 @@ export async function saveResponse(checkpointId: string, row: ResponseRow): Prom
         option_id: row.option_id,
         narrative: row.narrative?.trim() ? row.narrative : null,
         carry_status: row.carry_status,
+        entered_by_manager: asManager,
       },
       { onConflict: "checkpoint_id,question_id" },
     );

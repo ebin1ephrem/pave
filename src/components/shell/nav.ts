@@ -154,6 +154,23 @@ export const NAV: Record<Role, NavSection[]> = {
         },
       ],
     },
+    {
+      title: "Selected program",
+      items: [
+        {
+          label: "Startups",
+          href: "/manager/startups",
+          icon: Users,
+          empty: { title: "No startups in this program", body: "Add startups one at a time or by CSV." },
+        },
+        {
+          label: "Checkpoints",
+          href: "/manager/checkpoints",
+          icon: CalendarClock,
+          empty: { title: "No checkpoint opened", body: "Open the Benchmark with a due date to let founders start." },
+        },
+      ],
+    },
   ],
   merstra_admin: [
     {

@@ -39,6 +39,10 @@ async function deliver(row: { id: string; to_email: string; template: string; pa
     admin.from("email_outbox").update({ status, detail, sent_at: status === "sent" ? new Date().toISOString() : null }).eq("id", row.id);
   try {
     const site = row.payload.site;
+    // Reserved domains (RFC 2606) can never receive mail. Sample and test accounts use them.
+    if (/@(example\.(org|com|net)|[^@]+\.(test|example|invalid|localhost))$/i.test(row.to_email)) {
+      return await done("skipped", "Reserved test address; nothing was sent");
+    }
     if (RESEND_KEY && EMAIL_FROM) {
       const payload = { ...row.payload };
       if (row.template === "invitation") {

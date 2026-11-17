@@ -17,6 +17,9 @@ export const ROLE_HOME: Record<Role, string> = {
   founder: "/founder",
 };
 
+/** Bump this when the data notice changes; founders are then asked again. */
+export const CONSENT_VERSION = "2026-11";
+
 /** When someone holds several roles, the shell opens on the widest one. */
 const ROLE_ORDER: Role[] = ["merstra_admin", "customer_admin", "manager", "founder"];
 
@@ -33,6 +36,10 @@ export interface SessionUser {
   /** Null when the account exists but has not been given access to anything yet. */
   role: Role | null;
   programs: Program[];
+  /** The tenant the role applies to. Null for Merstra admins. */
+  tenantId: string | null;
+  /** Founders must accept the data notice once before using PAVE. */
+  consented: boolean;
   preview: boolean;
 }
 
@@ -46,6 +53,8 @@ interface SessionValue {
   signInWithEmail: (email: string) => Promise<string | null>;
   /** Development only: open the shell as a sample user without signing in. */
   previewAs: (role: Role) => void;
+  /** Records the founder's acceptance of the data notice. Resolves to an error message or null. */
+  acceptConsent: (researchOptIn: boolean) => Promise<string | null>;
   signOut: () => Promise<void>;
 }
 
@@ -62,25 +71,31 @@ function previewUser(role: Role): SessionUser {
     email: "sample.user@example.org",
     role,
     programs: role === "merstra_admin" ? [] : role === "founder" ? PREVIEW_PROGRAMS.slice(0, 1) : PREVIEW_PROGRAMS,
+    tenantId: null,
+    consented: true,
     preview: true,
   };
 }
 
 async function loadUser(userId: string, email: string): Promise<SessionUser> {
   if (!supabase) throw new Error("Supabase is not configured");
-  const [roles, programs, profile] = await Promise.all([
+  const [roles, programs, profile, consent] = await Promise.all([
     supabase.rpc("my_roles"),
     supabase.from("programs").select("id, name, tenants(name)").order("name"),
     supabase.from("profiles").select("full_name").eq("id", userId).maybeSingle(),
+    supabase.from("consents").select("version").eq("user_id", userId).maybeSingle(),
   ]);
   if (roles.error) throw roles.error;
   if (programs.error) throw programs.error;
 
-  const held = new Set((roles.data as { role: Role }[]).map((r) => r.role));
+  const rows = roles.data as { role: Role; tenant_id: string | null }[];
+  const role = ROLE_ORDER.find((r) => rows.some((x) => x.role === r)) ?? null;
   return {
     name: profile.data?.full_name || email,
     email,
-    role: ROLE_ORDER.find((r) => held.has(r)) ?? null,
+    role,
+    tenantId: rows.find((x) => x.role === role)?.tenant_id ?? null,
+    consented: consent.data?.version === CONSENT_VERSION,
     programs: (programs.data as unknown as { id: string; name: string; tenants: { name: string } | null }[]).map((p) => ({
       id: p.id,
       name: p.name,
@@ -150,6 +165,18 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     setProgramId(next.programs[0]?.id ?? null);
   }, []);
 
+  const acceptConsent = useCallback(async (researchOptIn: boolean) => {
+    if (!supabase) return "PAVE is not connected to its database.";
+    const { data } = await supabase.auth.getUser();
+    if (!data.user) return "Sign in again.";
+    const { error } = await supabase
+      .from("consents")
+      .upsert({ user_id: data.user.id, version: CONSENT_VERSION, research_opt_in: researchOptIn, accepted_at: new Date().toISOString() });
+    if (error) return "Your choice could not be saved. Try again.";
+    setUser((u) => (u ? { ...u, consented: true } : u));
+    return null;
+  }, []);
+
   const signOut = useCallback(async () => {
     setUser(null);
     setProgramId(null);
@@ -157,8 +184,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo(
-    () => ({ loading, user, programId, setProgramId, signInWithEmail, previewAs, signOut }),
-    [loading, user, programId, signInWithEmail, previewAs, signOut],
+    () => ({ loading, user, programId, setProgramId, signInWithEmail, previewAs, acceptConsent, signOut }),
+    [loading, user, programId, signInWithEmail, previewAs, acceptConsent, signOut],
   );
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }

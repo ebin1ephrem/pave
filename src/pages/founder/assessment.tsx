@@ -65,8 +65,14 @@ export default function FounderAssessment() {
           <div className="grid gap-4 md:grid-cols-3">
             {enrollment.checkpoints.map((c, i) => {
               const before = enrollment.checkpoints[i - 1];
-              const waiting = !!before && (before.status === "not_started" || before.status === "in_progress") && c.status === "not_started";
+              const priorPending = !!before && (before.status === "not_started" || before.status === "in_progress") && c.status === "not_started";
+              const window = enrollment.windows[c.type];
+              const closed = !window?.is_open && (c.status === "not_started" || c.status === "in_progress");
+              const waiting = priorPending || (closed && c.status === "not_started");
               const s = STATUS[c.status];
+              const dueText = window?.due_date
+                ? new Date(`${window.due_date}T00:00:00`).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" })
+                : null;
               return (
                 <StatusCard
                   key={c.id}
@@ -74,13 +80,21 @@ export default function FounderAssessment() {
                   title={CHECKPOINT_LABEL[c.type]}
                   subtitle={`Checkpoint ${CHECKPOINT_ORDER.indexOf(c.type) + 1} of 3`}
                   description={ABOUT[c.type]}
-                  statuses={[waiting ? { label: `Opens after ${CHECKPOINT_LABEL[before.type]}`, tone: "faint" } : { label: s.label, tone: s.tone }]}
+                  statuses={[
+                    priorPending
+                      ? { label: `Opens after ${CHECKPOINT_LABEL[before!.type]}`, tone: "faint" }
+                      : closed
+                        ? { label: c.status === "in_progress" ? "Closed by your manager" : "Not open yet", tone: "faint" }
+                        : { label: s.label, tone: s.tone },
+                  ]}
                   facts={
                     c.submitted_at
                       ? [{ label: "Submitted", value: new Date(c.submitted_at).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) }]
-                      : []
+                      : dueText && !closed
+                        ? [{ label: "Due", value: dueText }]
+                        : []
                   }
-                  cta={waiting ? undefined : s.cta}
+                  cta={waiting ? undefined : closed ? "View answers" : s.cta}
                   muted={waiting}
                 />
               );
